@@ -1,0 +1,11 @@
+<?php if (count($this->data)): ?>
+
+<?php echo $this->data[0]['text']['name']; ?>
+
+
+<?php else : ?>
+    <?php $this->block('noItem'); ?>
+    <p class="info"><?= $this->noItemsMsg ?></p>
+    <?php $this->endblock(); ?>
+<?php endif; ?>
+<?php ?>

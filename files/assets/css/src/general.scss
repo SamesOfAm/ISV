@@ -1,0 +1,15 @@
+@import 'variables';
+@import 'menu';
+@import 'header';
+@import 'main';
+@import 'accordion';
+@import 'footer';
+@import 'login';
+@import 'fee';
+@import 'overview';
+@import 'store-list';
+
+body {
+  font-family: 'Merriweather', serif;
+  margin: 0;
+}
