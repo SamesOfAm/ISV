@@ -1,10 +1,10 @@
 <?php if (count($this->data)): ?>
 
-    <div class="layout_full">
+    <div class="store-list">
 
         <?php foreach ($this->data as $arrItem): ?>
             <?php $this->block('item'); ?>
-            <div class="item <?= $arrItem['class'] ?>">
+            <div class="store <?= $arrItem['class'] ?>">
 
                 <?php foreach ($arrItem['attributes'] as $field => $strName): ?>
                     <?php if ((isset($arrItem[$this->getFormat()][$field])
