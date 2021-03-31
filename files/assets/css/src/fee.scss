@@ -29,6 +29,7 @@
       justify-content: space-between;
       label {
         width: 40%;
+        margin-top: 5px;
       }
       input {
         width: 60%;
@@ -36,6 +37,7 @@
         box-sizing: border-box;
         font-family: 'Merriweather', serif;
         border: 1px solid #555;
+        border-radius: 5px;
         cursor: pointer;
         transition: border-color 250ms;
         &:hover {
@@ -55,6 +57,8 @@
         box-sizing: border-box;
         margin: 10px 0;
         font-family: 'Merriweather', serif;
+        border: 1px solid #555;
+        border-radius: 5px;
       }
     }
   }
