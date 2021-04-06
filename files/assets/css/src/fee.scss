@@ -4,8 +4,7 @@
   width: 95%;
   max-width: 1000px;
   margin: 10px auto;
-  background-color: #e9e9e9;
-  border-radius: 5px;
+  background-color: rgba(0,0,0,0.1);
   h1 {
     text-align: center;
   }
@@ -35,13 +34,35 @@
         width: 60%;
         padding: 4px 7px;
         box-sizing: border-box;
-        font-family: 'Merriweather', serif;
+        font-family: 'Barlow Semi Condensed', sans-serif;
         border: 1px solid #555;
-        border-radius: 5px;
-        cursor: pointer;
         transition: border-color 250ms;
         &:hover {
           border-color: #0e0e0e;
+        }
+      }
+      &.datepicker {
+        display: block;
+        label {
+          display: block;
+          width: 100%;
+        }
+        input {
+          width: 100%;
+        }
+      }
+      &.prop-open_mon_to,&.prop-open_tue_to,&.prop-open_wed_to,&.prop-open_thu_to,&.prop-open_fri_to,&.prop-open_sat_to,&.prop-open_sun_to, {
+        label {
+          display: none;
+        }
+        input {
+          position: relative;
+          &:before {
+            content: '-';
+            position: absolute;
+            top: -20px;
+            left: 0;
+          }
         }
       }
     }
@@ -56,22 +77,33 @@
         padding: 4px 7px;
         box-sizing: border-box;
         margin: 10px 0;
-        font-family: 'Merriweather', serif;
+        font-family: 'Barlow Semi Condensed', serif;
         border: 1px solid #555;
-        border-radius: 5px;
+      }
+    }
+    .widget-upload {
+      ul {
+        margin: 15px 0;
+        padding: 0;
+        list-style: none;
+        img {
+          width: 200px;
+        }
       }
     }
   }
   .formbody_submit button {
-    font-family: 'Merriweather', serif;
+    margin: 15px;
+    font-family: 'Barlow Semi Condensed', serif;
     border: none;
-    background: black;
+    background: $middle-orange;
     color: white;
     border-radius: 0;
     padding: 8px 11px;
     transition: background-color 250ms;
+    cursor: pointer;
     &:hover {
-      background-color: #555;
+      background-color: $bright-orange;
     }
   }
 }
