@@ -1,1 +1,25 @@
 @import 'variables';
+
+.ce_accordion {
+  .toggler {
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid;
+    margin: 10px 0;
+    border-radius: 5px;
+    transition: background-color 250ms;
+    &:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+    .toggler-icon {
+      font-family: 'Weimar', serif;
+      transition: transform 250ms;
+      display: inline-block;
+    }
+    &.active .toggler-icon {
+      transform: rotate(180deg);
+    }
+  }
+}

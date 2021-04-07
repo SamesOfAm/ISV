@@ -1,39 +1,69 @@
-<?php if (count($this->data)): ?>
+<div class="store-list">
 
-    <div class="store-list">
-
-        <?php foreach ($this->data as $arrItem): ?>
-            <?php $this->block('item'); ?>
-            <div class="store <?= $arrItem['class'] ?>">
-
-                <?php foreach ($arrItem['attributes'] as $field => $strName): ?>
-                    <?php if ((isset($arrItem[$this->getFormat()][$field])
-                               && ($strValue = $arrItem[$this->getFormat()][$field])
-                               || (isset($arrItem['text'][$field]) && ($strValue = $arrItem['text'][$field])))): ?>
-                        <div class="field <?= $field ?>">
-                            <?php if (!$this->view->get('hideLabels')): ?>
-                                <div class="label"><?= sprintf(
-                                        $GLOBALS['TL_LANG']['MSC']['field_label'],
-                                        $strName
-                                    ) ?></div>
-                            <?php endif; ?>
-                            <div class="value"> <?= $strValue ?></div>
-                        </div>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-                <?php $this->block('actions'); ?>
-                <div class="actions">
-                    <?php foreach ($arrItem['actions'] as $action): ?>
-                        <?php $this->insert('mm_actionbutton', ['action' => $action]); ?>
-                    <?php endforeach; ?>
+    <?php foreach ($this->data as $store): ?>
+        <?php $this->block('item'); ?>
+        <div class="store <?= $store['class'] ?>">
+            <?php if($store['text']['photo']): ?>
+                <div class="store-photo">
+                    <div class="photo">
+                        <img src="<?= $store['text']['photo'] ?>">
+                    </div>
                 </div>
-                <?php $this->endblock(); ?>
+            <?php endif; ?>
+            <div class="store-info">
+                <div class="name"><?= $store['text']['name'] ?></div>
+                <div class="assortment"><?= $store['text']['assortment'] ?></div>
+                <div class="desc"><?= $store['text']['desc'] ?></div>
+                <div class="special_offers">+++ <?= $store['text']['special_offers'] ?> +++</div>
             </div>
-            <?php $this->endblock(); ?>
-        <?php endforeach; ?>
-    </div>
-<?php else : ?>
-    <?php $this->block('noItem'); ?>
-    <p class="info"><?= $this->noItemsMsg ?></p>
-    <?php $this->endblock(); ?>
-<?php endif; ?>
+
+            <section class="ce_accordionSingle ce_accordion block">
+                <div class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="false" aria-expanded="false" tabindex="0">
+                    <span class="toggler-icon">g</span> Mehr Infos
+                </div>
+                <div class="accordion item <?= $store['class'] ?>">
+                    <div class="address">
+                        <h3>Adresse</h3>
+                        <?= nl2br($store['raw']['address']) ?>
+                    </div>
+
+                    <div class="opening-hours">
+                        <h3>Öffnungszeiten</h3>
+                        <table>
+                            <tr>
+                                <td>Montag</td>
+                                <td><?php if($store['text']['open_mon_from']): ?><?= $store['text']['open_mon_from']; ?> - <?= $store['text']['open_mon_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Dienstag</td>
+                                <td><?php if($store['text']['open_tue_from']): ?><?= $store['text']['open_tue_from']; ?> - <?= $store['text']['open_tue_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Mittwoch</td>
+                                <td><?php if($store['text']['open_wed_from']): ?><?= $store['text']['open_wed_from']; ?> - <?= $store['text']['open_wed_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Donnerstag</td>
+                                <td><?php if($store['text']['open_thu_from']): ?><?= $store['text']['open_thu_from']; ?> - <?= $store['text']['open_thu_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Freitag</td>
+                                <td><?php if($store['text']['open_fri_from']): ?><?= $store['text']['open_fri_from']; ?> - <?= $store['text']['open_fri_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Samstag</td>
+                                <td><?php if($store['text']['open_sat_from']): ?><?= $store['text']['open_sat_from']; ?> - <?= $store['text']['open_sat_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Sonntag</td>
+                                <td><?php if($store['text']['open_sun_from']): ?><?= $store['text']['open_sun_from']; ?> - <?= $store['text']['open_sun_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <?php $this->endblock(); ?>
+    <?php endforeach; ?>
+</div>
