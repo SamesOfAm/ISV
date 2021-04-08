@@ -7,6 +7,8 @@
   }
   form .formbody_edit fieldset {
     min-width: 0;
+    margin: 0;
+    padding: 0;
     border: none;
     legend {
       display: none;
@@ -37,39 +39,21 @@
         label {
           display: block;
           width: 100%;
+          font-size: 17px;
         }
         input {
           width: 100%;
         }
       }
-      &.prop-open_mon_to,&.prop-open_tue_to,&.prop-open_wed_to,&.prop-open_thu_to,&.prop-open_fri_to,&.prop-open_sat_to,&.prop-open_sun_to, {
-        label {
-          display: none;
-        }
-        input {
-          position: relative;
-          &:before {
-            content: '-';
-            position: absolute;
-            top: -20px;
-            left: 0;
-          }
-        }
+      &.prop-open_mon_to,&.prop-open_tue_to,&.prop-open_wed_to,&.prop-open_thu_to,&.prop-open_fri_to,&.prop-open_sat_to,&.prop-open_sun_to {
+        width: 45%;
+        float: right;
+        margin: 8px 0;
       }
-    }
-    .widget-textarea {
-      label {
-        display: block;
-        width: 100%;
-      }
-      textarea {
-        display: block;
-        width: 100%;
-        padding: 4px 7px;
-        box-sizing: border-box;
-        margin: 10px 0;
-        font-family: 'Barlow Semi Condensed', serif;
-        border: 1px solid #555;
+      &.prop-open_mon_from,&.prop-open_tue_from,&.prop-open_wed_from,&.prop-open_thu_from,&.prop-open_fri_from,&.prop-open_sat_from,&.prop-open_sun_from {
+        width: 45%;
+        float: left;
+        margin: 8px 0;
       }
     }
     .widget-upload {
@@ -83,8 +67,22 @@
       }
     }
   }
+  .widget-textarea {
+    label {
+      display: block;
+      width: 100%;
+    }
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 4px 7px;
+      box-sizing: border-box;
+      margin: 10px 0;
+      font-family: 'Barlow Semi Condensed', serif;
+      border: 1px solid #555;
+    }
+  }
   .formbody_submit button {
-    margin: 15px;
     font-family: 'Barlow Semi Condensed', serif;
     border: none;
     background: $middle-orange;
