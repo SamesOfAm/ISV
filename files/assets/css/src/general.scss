@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Weimar";
-  src: url("https://weimar.app/files/assets/fonts/weimar.woff") format('woff');
+  src: url("https://weimar.app/files/assets/fonts/weimar.woff?hglndo") format('woff');
   font-style: normal;
   font-weight: 400;
 }
@@ -53,6 +53,11 @@ a {
     line-height: 1.1em;
     letter-spacing: 1.2px;
   }
+}
+
+.icon-font {
+  font-family: 'Weimar', sans-serif;
+  font-size: 22px;
 }
 
 @media screen and (min-width: $desktop) {
