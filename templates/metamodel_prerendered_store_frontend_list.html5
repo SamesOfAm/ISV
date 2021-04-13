@@ -9,23 +9,25 @@
                         <img src="<?= $store['text']['photo'] ?>">
                         <?php $time = time(); ?>
                         <?php $hour = date('H:i', $time) ?>
-                        <span class="open-sign icon-font">
-                            <?php if(date('N', $time) === '1'): ?>
-                                <?php if(($store['text']['open_mon_from'] <= $hour) && ($hour <= $store['raw']['open_mon_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                            <?php elseif(date('N', $time) === '2'): ?>
-                                <?php if(($store['text']['open_tue_from'] <= $hour) && ($hour <= $store['raw']['open_tue_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                            <?php elseif(date('N', $time) === '3'): ?>
-                                <?php if(($store['text']['open_wed_from'] <= $hour) && ($hour <= $store['raw']['open_wed_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                            <?php elseif(date('N', $time) === '4'): ?>
-                                <?php if(($store['text']['open_thu_from'] <= $hour) && ($hour <= $store['raw']['open_thu_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                            <?php elseif(date('N', $time) === '5'): ?>
-                                <?php if(($store['text']['open_fri_from'] <= $hour) && ($hour <= $store['raw']['open_fri_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                            <?php elseif(date('N', $time) === '6'): ?>
-                                <?php if(($store['text']['open_sat_from'] <= $hour) && ($hour <= $store['raw']['open_sat_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                            <?php elseif(date('N', $time) === '7'): ?>
-                                <?php if(($store['text']['open_sun_from'] <= $hour) && ($hour <= $store['raw']['open_sun_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                            <?php endif; ?>
-                        </span>
+                        <div class="open-sign-wrapper">
+                            <span class="open-sign icon-font">
+                                <?php if(date('N', $time) === '1'): ?>
+                                    <?php if(($store['text']['open_mon_from'] <= $hour) && ($hour <= $store['raw']['open_mon_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php elseif(date('N', $time) === '2'): ?>
+                                    <?php if(($store['text']['open_tue_from'] <= $hour) && ($hour <= $store['raw']['open_tue_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php elseif(date('N', $time) === '3'): ?>
+                                    <?php if(($store['text']['open_wed_from'] <= $hour) && ($hour <= $store['raw']['open_wed_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php elseif(date('N', $time) === '4'): ?>
+                                    <?php if(($store['text']['open_thu_from'] <= $hour) && ($hour <= $store['raw']['open_thu_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php elseif(date('N', $time) === '5'): ?>
+                                    <?php if(($store['text']['open_fri_from'] <= $hour) && ($hour <= $store['raw']['open_fri_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php elseif(date('N', $time) === '6'): ?>
+                                    <?php if(($store['text']['open_sat_from'] <= $hour) && ($hour <= $store['raw']['open_sat_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php elseif(date('N', $time) === '7'): ?>
+                                    <?php if(($store['text']['open_sun_from'] <= $hour) && ($hour <= $store['raw']['open_sun_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php endif; ?>
+                            </span>
+                        </div>
                     </div>
                 </div>
             <?php endif; ?>
