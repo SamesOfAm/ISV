@@ -23,15 +23,14 @@
 $this->import('Database');
 $objUser = FrontendUser::getInstance();
 $username = $objUser->username;
-
-$sql = "SELECT id FROM mm_store WHERE int_name='" . $username . "'";
-$dbQuery = Database::getInstance()->prepare($sql);
-$dbResult = $dbQuery->execute();
 $id = $_GET["id"];
 $idParts = explode('::', $id);
+$sql = "SELECT id FROM $idParts[0] WHERE int_name='" . $username . "'";
+$dbQuery = Database::getInstance()->prepare($sql);
+$dbResult = $dbQuery->execute();
 while($row = $dbResult->fetchRow()):
     if($row[0] === $idParts[1]):
-?>
+        ?>
 
         <form method="post"
               action="<?= ampersand(\Environment::get('request'), true); ?>"
@@ -69,7 +68,7 @@ while($row = $dbResult->fetchRow()):
             </div>
         </form>
 
-<?php else: ?>
-    <p>Hier gibt es nichts zu sehen</p>
-<?php endif; ?>
+    <?php else: ?>
+        <p>Hier gibt es nichts zu sehen</p>
+    <?php endif; ?>
 <?php endwhile; ?>

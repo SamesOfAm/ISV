@@ -24,6 +24,10 @@ a {
   color: white;
   text-decoration: none;
   font-variant-caps: small-caps;
+  transition: color 250ms;
+  &:hover {
+    color: $middle-orange;
+  }
 }
 
 .link-secondary a {

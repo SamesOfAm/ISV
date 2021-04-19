@@ -1,2 +1,23 @@
 @import 'variables';
 
+#login-button,.logout-link {
+  text-align: right;
+  a {
+    background-color: $darker-green;
+    padding: 8px 11px;
+    transition: background-color 250ms;
+    &:hover {
+      color: white;
+      background-color: $dark-green;
+    }
+  }
+}
+
+.logout-link {
+  float: right;
+  a {
+    line-height: 2em;
+  }
+}
+
+

@@ -1,13 +1,5 @@
 @import 'variables';
 
-#login-button {
-  text-align: right;
-  a {
-    background-color: $middle-orange;
-    padding: 8px 11px;
-  }
-}
-
 #homepage-links {
   display: flex;
   justify-content: space-between;
@@ -29,6 +21,9 @@
       display: inline-block;
       padding-top: 20px;
       box-sizing: border-box;
+      &:hover {
+        color: white;
+      }
     }
     &:hover {
       background-color: rgba(255,255,255,0.4);

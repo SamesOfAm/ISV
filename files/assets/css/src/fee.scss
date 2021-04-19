@@ -57,6 +57,13 @@
       }
     }
     .widget-upload {
+      border: 1px solid;
+      padding: 20px;
+      > label {
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid;
+      }
       ul {
         margin: 15px 0;
         padding: 0;
@@ -64,6 +71,22 @@
         img {
           width: 200px;
         }
+      }
+      .dropzone {
+        border: 4px dashed $dark-green;
+        border-radius: 10px;
+        &.dropzone .dz-message span {
+          color: black;
+        }
+      }
+      .file-name {
+        display: none;
+      }
+      .file-container ~ .tl_tbox {
+        display: none;
+      }
+      .tl_tbox {
+        margin-top: 20px;
       }
     }
   }

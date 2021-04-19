@@ -1,11 +1,16 @@
 @import 'variables';
 
+.store-list-window .ce_metamodel_content {
+  overflow: visible;
+}
 
 .store {
-  margin: 20px 0;
-  padding: 20px;
-  background-color: rgba(0,0,0,0.1);
-  box-sizing: border-box;
+  .store-inner {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.1);
+    box-sizing: border-box;
+  }
   .name {
     margin: 12px 0;
     padding: 8px 0;
@@ -30,16 +35,17 @@
     padding: 10px 14px;
     text-align: center;
   }
-  .photo {
+  .store-photo {
     position: relative;
+  }
+  .photo {
+    margin: 0 auto;
     text-align: center;
-    img {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid;
-    }
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid;
     .open-sign-wrapper {
       position: absolute;
       right: -20px;
@@ -70,12 +76,9 @@
       .photo {
         width: 100%;
         margin-bottom: -6px;
-        img {
-          width: 100%;
-          height: 200px;
-          border-radius: initial;
-          border: none;
-        }
+        height: 200px;
+        border-radius: initial;
+        border: none;
         .open-sign-wrapper {
           line-height: 65px;
           background: rgba(0,0,0,0.5);
