@@ -1,17 +1,53 @@
 @import 'variables';
 
-.store-list-window .ce_metamodel_content {
+.list-window .ce_metamodel_content {
   overflow: visible;
 }
 
-.store {
-  .store-inner {
+.shop-list-filter {
+  border-radius: 3px;
+  background: $bright-green;
+  .toggler {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: $toggler-padding;
+    &:after {
+      position: absolute;
+      top: 4px;
+      right: 9px;
+      content: "g";
+      font-family: "Weimar",sans-serif;
+      text-transform: none;
+      font-size: 21px;
+      transition: transform 250ms;
+    }
+    &.active:after {
+      transform: rotate(180deg);
+    }
+  }
+  .accordion {
+    padding: 0 10px 10px;
+    > div {
+      border-top: 1px solid;
+    }
+    .clearall {
+      text-align: right;
+      font-size: 15px;
+    }
+  }
+}
+
+.item {
+  .item-inner {
     margin: 20px 0;
-    padding: 20px;
+    padding: 20px 0;
     background-color: rgba(0,0,0,0.1);
     box-sizing: border-box;
   }
-  .name {
+  .name h2 {
     margin: 12px 0;
     padding: 8px 0;
     border-bottom: 1px solid;
@@ -30,12 +66,12 @@
   }
   .special_offers {
     font-variant-caps: all-small-caps;
-    background-color: $dark-orange;
+    background-color: $bright-green;
     font-weight: bold;
     padding: 10px 14px;
     text-align: center;
   }
-  .store-photo {
+  .item-photo {
     position: relative;
   }
   .photo {
@@ -48,29 +84,46 @@
     border: 5px solid;
     .open-sign-wrapper {
       position: absolute;
-      right: -20px;
+      right: 0;
       bottom: -10px;
       .open-sign {
         font-size: 90px;
       }
     }
   }
+  .logo {
+    position: absolute;
+    width: auto;
+    height: 100px;
+    transform: translateY(-50%);
+    left: 0;
+    box-sizing: border-box;
+    padding: 10px;
+    background: white;
+    img {
+      max-height: 100%;
+      width: auto;
+    }
+  }
   .address {
     margin: 25px 0;
+  }
+  .item-info {
+    margin-top: 50px;
   }
 }
 
 @media screen and (min-width: $tablet) {
-  .store-list {
+  .item-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
 
-  .store {
+  .item {
     width: 45%;
     margin: 20px 0 120px;
-    .store-photo {
+    .item-photo {
       margin: -20px -20px 0 -20px;
       border-bottom: 5px solid;
       .photo {
@@ -84,6 +137,9 @@
           background: rgba(0,0,0,0.5);
           border-radius: 50%;
           padding: 20px;}
+      }
+      .logo {
+        left: 20px;
       }
     }
   }

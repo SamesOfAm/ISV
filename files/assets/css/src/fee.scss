@@ -88,6 +88,18 @@
       .tl_tbox {
         margin-top: 20px;
       }
+      &.prop-logo,&.prop-photo {
+        .file-action {
+          input {
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+          }
+          label {
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
   .widget-textarea {

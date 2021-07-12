@@ -1,23 +1,56 @@
 @import 'variables';
 
-#login-button,.logout-link {
-  text-align: right;
-  a {
-    background-color: $darker-green;
-    padding: 8px 11px;
-    transition: background-color 250ms;
-    &:hover {
-      color: white;
-      background-color: $dark-green;
+#header {
+  margin-bottom: 10px;
+  .inside {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    .logo {
+      width: 120px;
+      margin-top: 40px;
     }
   }
 }
 
-.logout-link {
+.header-left {
+  margin-right: 3px;
+}
+
+.header-right {
+  margin-top: 35px;
+  border-bottom: 1px solid;
+  width: 100%;
+  position: relative;
+  transform: translateY(-10px);
+}
+
+.header-right-inner {
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
   float: right;
-  a {
-    line-height: 2em;
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+
+.header-right-bottom {
+  float: right;
+}
+
+.search .ce_form {
+  .widget-text {
+    display: none;
+  }
+  .widget-submit button {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
   }
 }
+
+
 
 

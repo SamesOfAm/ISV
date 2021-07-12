@@ -1,0 +1,31 @@
+<!-- indexer::stop -->
+
+
+
+<div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+  <?php if ($this->headline): ?>
+
+    <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
+<?php endif; ?>
+
+<form<?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?> method="post" id="offer-filter-form">
+    <input name="REQUEST_TOKEN" type="hidden" value="{{request_token}}"/>
+    <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formid ?>">
+    <div class="formbody">
+
+        <section class="offer-filter-content block">
+          <?php foreach ((is_array($this->filters) ? $this->filters : []) as $filter): ?>
+              <div class="widget <?= $filter['class'] ?>">
+                <?= $filter['value'] ?>
+              </div>
+          <?php endforeach; ?>
+
+            <div class="submit_container">
+                <input type="submit" class="submit" value="Filter anwenden"><span id="submit-arrow" class="icon-font">C</span>
+            </div>
+        </section>
+    </div>
+</form>
+
+</div>
+<!-- indexer::continue -->

@@ -1,0 +1,134 @@
+@import "variables";
+
+.store-detail {
+  .open-sign-wrapper {
+    transform: translateY(50%);
+  }
+  .open-sign-background {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+  }
+  .open-sign {
+    align-self: center;
+    transform: translateY(-7px);
+    font-size: 50px;
+    color: black;
+  }
+  .map {
+    height: 150px;
+  }
+}
+
+.store-detail-photo {
+  img {
+    border-radius: 5px;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.store-detail-logo {
+  height: 80px;
+  margin-top: -45px;
+  text-align: center;
+  img {
+    height: 100%;
+    border-radius: 5px;
+  }
+}
+
+.store-detail-headline {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid;
+  h1 {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  .social-links {
+    display: inline-block;
+    float: right;
+  }
+}
+
+.store-detail-classification {
+  line-height: 1em;
+}
+
+.store-detail-categories {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+.store-detail-tags {
+  font-size: 13px;
+  color: $bright-green;
+}
+
+.store-detail-offer {
+  position: relative;
+  margin: 10px 0;
+  background-color: $brighter-green;
+  padding: 4px 7px 4px 35px;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px #333;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 3px;
+  text-transform: uppercase;
+  &:before {
+    content: 'T';
+    font-family: 'Weimar', sans-serif;
+    text-transform: none;
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    font-size: 22px;
+  }
+}
+
+.store-detail-map {
+  margin-bottom: 20px;
+}
+
+.bottom-links {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  > div {
+    position: relative;
+    width: 49%;
+    background-color: #8aa69e;
+    padding: 4px 7px 4px 35px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px #333;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 3px;
+    a:before {
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      font-family: 'Weimar', sans-serif;
+      font-size: 22px;
+      text-transform: none;
+    }
+    &.link-back a:before {
+      content: 'd';
+    }
+    &.link-to-shop a:before {
+      content: 'U';
+    }
+  }
+}
+

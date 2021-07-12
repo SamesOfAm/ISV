@@ -1,1 +1,21 @@
 @import 'variables';
+
+
+.menu-close {
+  color: black;
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  font-size: 70px;
+  transition: text-shadow 250ms;
+  -webkit-transition: text-shadow 250ms;
+  -moz-transition: text-shadow 250ms;
+  -o-transition: text-shadow 250ms;
+  &:hover {
+    text-shadow: 0 0 5px;
+  }
+}
+
+.mobile_menu .inner {
+  background: white;
+}

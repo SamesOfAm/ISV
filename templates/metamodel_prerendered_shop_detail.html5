@@ -1,0 +1,147 @@
+<?php if (count($this->data)): ?>
+
+    <?php foreach ($this->data as $store): ?>
+
+        <div class="layout_full store-detail">
+          <?php $time = time(); ?>
+          <?php $hour = date('H:i', $time) ?>
+            <div class="open-sign-wrapper">
+                <div class="open-sign-background">
+                    <span class="open-sign icon-font">
+                        <?php if(date('N', $time) === '1'): ?>
+                          <?php if(($store['text']['open_mon_from'] <= $hour) && ($hour <= $store['raw']['open_mon_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php elseif(date('N', $time) === '2'): ?>
+                          <?php if(($store['text']['open_tue_from'] <= $hour) && ($hour <= $store['raw']['open_tue_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php elseif(date('N', $time) === '3'): ?>
+                          <?php if(($store['text']['open_wed_from'] <= $hour) && ($hour <= $store['raw']['open_wed_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php elseif(date('N', $time) === '4'): ?>
+                          <?php if(($store['text']['open_thu_from'] <= $hour) && ($hour <= $store['raw']['open_thu_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php elseif(date('N', $time) === '5'): ?>
+                          <?php if(($store['text']['open_fri_from'] <= $hour) && ($hour <= $store['raw']['open_fri_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php elseif(date('N', $time) === '6'): ?>
+                          <?php if(($store['text']['open_sat_from'] <= $hour) && ($hour <= $store['raw']['open_sat_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php elseif(date('N', $time) === '7'): ?>
+                          <?php if(($store['text']['open_sun_from'] <= $hour) && ($hour <= $store['raw']['open_sun_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php endif; ?>
+                    </span>
+                </div>
+            </div>
+            <div class="store-detail-photo">
+                <img src="<?php if($store['text']['photo']): ?><?= $store['text']['photo'] ?><?php else: ?>files/assets/layout/shop_placeholder.png<?php endif; ?>">
+            </div>
+            <div class="store-detail-logo">
+                <img src="<?= $store['text']['logo'] ?>">
+            </div>
+            <div class="store-detail-headline">
+                <h1><?= $store['text']['name'] ?></h1>
+                <div class="social-links">
+                    <span class="fav-link icon-font">O</span>
+                    <span class="share-link icon-font">t</span>
+                </div>
+            </div>
+            <div class="store-detail-classification">
+                <span class="store-detail-categories"><?= $store['text']['type'] ?></span><br>
+                <span class="store-detail-tags"><?= $store['text']['tags'] ?></span>
+            </div>
+
+
+            <!-- indexer::stop -->
+            <script>function loadTabControl_128(){window.TC_128=new Array();i=0;$$('#tabcontrol_128').each(function(s){i++;elements=s.getElements('.tabs');if(elements.length){var tcControl=new TabControl(s,{delay:2500,tab_remember:0,tab_cookiename:'tabcontrollcookie-128',tab_control:'tabcontrol_128',behaviour:'click',tabs:s.getElements('.tabs'),panes:s.getElements('.panes'),selectedClass:'selected',hoverClass:'hover'});window.addEvent("hashchange",function(){tcControl.onTabHashChange()});window.TC_128[i]=tcControl}})}(function($){window.addEvent('domready',loadTabControl_128)})(document.id)</script>
+            <!-- indexer::continue -->
+
+           <div id="tabcontrol_128" class="ce_tabcontrol block">
+                <div class="tabcontrol_tabs block">
+                    <ul>
+                        <li class="tabs tab_0 selected" id="128_0">Öffnungszeiten</li>
+                        <li class="tabs tab_1" id="128_1">Shop-Info</li>
+                    </ul>
+                </div>
+                <div class="tabcontrol_panes block">
+                    <div class="ce_tabcontrol_pane pane_1 block" id="pane_129_1">
+                        <div class="panes" style="display: block;">
+                            <div>
+                                <div class="ce_text block">
+                                    <p>
+                                        Montag <?php if($store['text']['open_mon_from']): ?><?= $store['text']['open_mon_from'] ?> - <?= $store['text']['open_mon_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?><br>
+                                        Dienstag <?php if($store['text']['open_tue_from']): ?><?= $store['text']['open_tue_from'] ?> - <?= $store['text']['open_tue_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?><br>
+                                        Mittwoch <?php if($store['text']['open_wed_from']): ?><?= $store['text']['open_wed_from'] ?> - <?= $store['text']['open_wed_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?><br>
+                                        Donnerstag <?php if($store['text']['open_thu_from']): ?><?= $store['text']['open_thu_from'] ?> - <?= $store['text']['open_thu_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?><br>
+                                        Freitag <?php if($store['text']['open_fri_from']): ?><?= $store['text']['open_fri_from'] ?> - <?= $store['text']['open_fri_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?><br>
+                                        Samstag <?php if($store['text']['open_sat_from']): ?><?= $store['text']['open_sat_from'] ?> - <?= $store['text']['open_sat_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?><br>
+                                        Sonntag <?php if($store['text']['open_sun_from']): ?><?= $store['text']['open_sun_from'] ?> - <?= $store['text']['open_sun_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ce_tabcontrol_pane pane_2 block" id="pane_132_2">
+                        <div class="panes" style="display: none;">
+                            <div>
+                                <div class="ce_text block">
+                                    <p><?= $store['text']['desc'] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="store-detail-offer">
+                <span><?= str_replace('!', '', $store['text']['special_offers']); ?></span>
+            </div>
+
+            <!-- indexer::stop -->
+            <script>function loadTabControl_140(){window.TC_140=new Array();i=0;$$('#tabcontrol_140').each(function(s){i++;elements=s.getElements('.tabs');if(elements.length){var tcControl=new TabControl(s,{delay:2500,tab_remember:0,tab_cookiename:'tabcontrollcookie-134',tab_control:'tabcontrol_140',behaviour:'click',tabs:s.getElements('.tabs'),panes:s.getElements('.panes'),selectedClass:'selected',hoverClass:'hover'});window.addEvent("hashchange",function(){tcControl.onTabHashChange()});window.TC_140[i]=tcControl}})}(function($){window.addEvent('domready',loadTabControl_140)})(document.id)</script>
+            <!-- indexer::continue -->
+
+            <div id="tabcontrol_140" class="ce_tabcontrol block">
+                <div class="tabcontrol_tabs block">
+                    <ul>
+                        <li class="tabs tab_0 selected" id="140_0">Karten-Ansicht</li>
+                        <li class="tabs tab_1 hover" id="140_1">Adresse + Kontakt</li>
+                    </ul>
+                </div>
+                <div class="tabcontrol_panes block">
+                    <div class="ce_tabcontrol_pane pane_1 block" id="pane_141_1">
+                        <div class="panes" style="display: block;">
+
+                            <div class="store-detail-map">
+                                <div id="map" class="map"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ce_tabcontrol_pane pane_2 block" id="pane_143_2">
+                        <div class="panes" style="display: none;">
+                            <div>
+                                <div>
+                                  <p>
+                                      <?= $store['text']['name'] ?><br>
+                                      <?= $store['text']['street'] ?> <?= $store['text']['street_number'] ?><br>
+                                      <?= $store['text']['zip'] ?> <?= $store['text']['city'] ?>
+                                  </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    <div class="bottom-links">
+        <div class="link-to-shop">
+            <a href="#">Zum Onlineshop</a>
+        </div>
+        <div class="link-back">
+            {{link::back}}
+        </div>
+    </div>
+    <?php endforeach; ?>
+<?php else : ?>
+    <?php $this->block('noItem'); ?>
+    <p class="info"><?= $this->noItemsMsg ?></p>
+    <?php $this->endblock(); ?>
+<?php endif; ?>
+
+

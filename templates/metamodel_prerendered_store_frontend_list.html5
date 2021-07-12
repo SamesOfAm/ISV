@@ -1,51 +1,61 @@
-<div class="store-list">
+<div class="item-list">
 
     <?php foreach ($this->data as $store): ?>
+
         <?php $this->block('item'); ?>
-        <div class="store <?= $store['class'] ?>">
-            <div class="store-inner">
-                <?php if($store['text']['photo']): ?>
-                    <div class="store-photo">
-                        <div class="photo" style="background-image:radial-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('<?= $store['text']['photo'] ?>');background-size:cover;background-position:center;">
-                            <?php $time = time(); ?>
-                            <?php $hour = date('H:i', $time) ?>
-                            <div class="open-sign-wrapper">
-                                <span class="open-sign icon-font">
-                                    <?php if(date('N', $time) === '1'): ?>
-                                        <?php if(($store['text']['open_mon_from'] <= $hour) && ($hour <= $store['raw']['open_mon_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                                    <?php elseif(date('N', $time) === '2'): ?>
-                                        <?php if(($store['text']['open_tue_from'] <= $hour) && ($hour <= $store['raw']['open_tue_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                                    <?php elseif(date('N', $time) === '3'): ?>
-                                        <?php if(($store['text']['open_wed_from'] <= $hour) && ($hour <= $store['raw']['open_wed_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                                    <?php elseif(date('N', $time) === '4'): ?>
-                                        <?php if(($store['text']['open_thu_from'] <= $hour) && ($hour <= $store['raw']['open_thu_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                                    <?php elseif(date('N', $time) === '5'): ?>
-                                        <?php if(($store['text']['open_fri_from'] <= $hour) && ($hour <= $store['raw']['open_fri_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                                    <?php elseif(date('N', $time) === '6'): ?>
-                                        <?php if(($store['text']['open_sat_from'] <= $hour) && ($hour <= $store['raw']['open_sat_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                                    <?php elseif(date('N', $time) === '7'): ?>
-                                        <?php if(($store['text']['open_sun_from'] <= $hour) && ($hour <= $store['raw']['open_sun_to'])): ?>v<?php else: ?>V<?php endif; ?>
-                                    <?php endif; ?>
-                                </span>
-                            </div>
+        <div class="item store <?= $store['class'] ?>">
+            <div class="item-inner">
+                <div class="item-photo">
+                    <div class="photo" style="background-image:radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,0.8) 95%), url('<?php if($store['text']['photo']): ?><?= $store['text']['photo'] ?><?php else: ?>files/assets/layout/shop_placeholder.png<?php endif; ?>');background-size:cover;background-position:center;">
+                        <?php $time = time(); ?>
+                        <?php $hour = date('H:i', $time) ?>
+                        <div class="open-sign-wrapper">
+                            <span class="open-sign icon-font">
+                                <?php if(date('N', $time) === '1'): ?>
+                                    <?php if(($store['text']['open_mon_from'] <= $hour) && ($hour <= $store['raw']['open_mon_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php elseif(date('N', $time) === '2'): ?>
+                                    <?php if(($store['text']['open_tue_from'] <= $hour) && ($hour <= $store['raw']['open_tue_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php elseif(date('N', $time) === '3'): ?>
+                                    <?php if(($store['text']['open_wed_from'] <= $hour) && ($hour <= $store['raw']['open_wed_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php elseif(date('N', $time) === '4'): ?>
+                                    <?php if(($store['text']['open_thu_from'] <= $hour) && ($hour <= $store['raw']['open_thu_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php elseif(date('N', $time) === '5'): ?>
+                                    <?php if(($store['text']['open_fri_from'] <= $hour) && ($hour <= $store['raw']['open_fri_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php elseif(date('N', $time) === '6'): ?>
+                                    <?php if(($store['text']['open_sat_from'] <= $hour) && ($hour <= $store['raw']['open_sat_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php elseif(date('N', $time) === '7'): ?>
+                                    <?php if(($store['text']['open_sun_from'] <= $hour) && ($hour <= $store['raw']['open_sun_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                                <?php endif; ?>
+                            </span>
                         </div>
                     </div>
-                <?php endif; ?>
-                <div class="store-info">
-                    <div class="name"><?= $store['text']['name'] ?></div>
-                    <div class="assortment"><?= $store['text']['assortment'] ?></div>
-                    <div class="desc"><?= $store['text']['desc'] ?></div>
-                    <div class="special_offers">+++ <?= $store['text']['special_offers'] ?> +++</div>
+                    <?php if($store['text']['logo']): ?>
+                        <div class="logo">
+                            <img src="<?= $store['text']['logo'] ?>">
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="item-info">
+                    <div class="name"><h2><a href="<?= $store['jumpTo']['url'] ?>"><?= $store['text']['name'] ?></a></h2></div>
+                    <div class="assortment"><?= $store['text']['type'] ?></div>
+                    <div class="desc"><?= str_replace('!', '', $store['text']['desc']); ?></div>
+                    <div class="special_offers"><?= str_replace('!', '', $store['text']['special_offers']); ?></div>
                 </div>
 
                 <section class="ce_accordionSingle ce_accordion block">
                     <div class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="false" aria-expanded="false" tabindex="0">
-                        <span class="toggler-icon">g</span> Mehr Infos
+                        <span class="icon-font">g</span> Mehr Infos
                     </div>
                     <div class="accordion item <?= $store['class'] ?>">
                         <div class="address">
                             <h3>Adresse</h3>
-                            <?= nl2br($store['raw']['address']) ?>
+                            <p style="margin-bottom:0;">
+                                <span><?= $store['text']['street'] ?> <?= $store['text']['street_number'] ?></span><br>
+                                <span><?= $store['text']['zip'] ?> <?= $store['text']['city'] ?></span>
+                            </p>
+                            <p style="margin-top:0;">
+                                <a href="https://www.google.com/maps/place/<?= $store['text']['street']; ?>+<?= $store['text']['street_number']; ?>,+<?= $store['text']['zip'] ?>>+<?= $store['text']['city'] ?>" target="_blank">&rarr; Auf Google Maps ansehen</a>
+                            </p>
                         </div>
 
                         <div class="opening-hours">

@@ -23,52 +23,84 @@
 $this->import('Database');
 $objUser = FrontendUser::getInstance();
 $username = $objUser->username;
-$id = $_GET["id"];
-$idParts = explode('::', $id);
-$sql = "SELECT id FROM $idParts[0] WHERE int_name='" . $username . "'";
-$dbQuery = Database::getInstance()->prepare($sql);
-$dbResult = $dbQuery->execute();
-while($row = $dbResult->fetchRow()):
-    if($row[0] === $idParts[1]):
-        ?>
+?>
 
-        <form method="post"
-              action="<?= ampersand(\Environment::get('request'), true); ?>"
-              id="<?= $this->table; ?>"
-              enctype="<?= $this->enctype; ?>"
-        >
+            <form method="post"
+                  action="<?= ampersand(\Environment::get('request'), true); ?>"
+                  id="<?= $this->table; ?>"
+                  enctype="<?= $this->enctype; ?>"
+            >
+                <?php if(strpos($_SERVER['REQUEST_URI'], 'user.html')): ?>
+                  <?php
+                      $id = $_GET["id"];
+                      $idParts = explode('::', $id);
+                      $sql = "SELECT id FROM $idParts[0] WHERE int_name='" . $username . "'";
+                      $dbQuery = Database::getInstance()->prepare($sql);
+                      $dbResult = $dbQuery->execute();
+                      while($row = $dbResult->fetchRow()):
+                        if($row[0] === $idParts[1]):
+                  ?>
+                    <div class="formbody_edit">
+                        <section class="ce_accordionSingle ce_accordion block">
+                            <div class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="false" aria-expanded="false" tabindex="0">
+                                Alle Optionen einblenden
+                            </div>
+                            <div class="accordion">
+                                <input type="hidden" name="FORM_SUBMIT" value="<?= specialchars($this->table); ?>"/>
+                                <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN; ?>"/>
+                                <?php if ($this->error): ?><p class="tl_error"><?= implode('<br />', $this->error); ?></p><?php endif; ?>
+                                <?php foreach ($this->fieldsets as $arrFieldset): ?>
+                                    <?php if ($arrFieldset['legend']): ?>
+                                        <fieldset id="pal_<?= specialchars($arrFieldset['legend']); ?>"
+                                                  class="<?= $arrFieldset['class']; ?> block">
+                                            <?= $arrFieldset['palette']; ?>
+                                        </fieldset>
+                                    <?php else: ?>
+                                        <fieldset class="<?= $arrFieldset['class']; ?> block nolegend">
+                                            <?= $arrFieldset['palette']; ?>
+                                        </fieldset>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="formbody_submit">
+                        <div class="submit_container">
+                            <?= implode(' ', $this->editButtons); ?>
+                        </div>
+                    </div>
+        <?php else: ?>
+            <p>Hier gibt es nichts zu sehen</p>
+        <?php endif; ?>
+    <?php endwhile; ?>
+<?php elseif(strpos((string)$_GET, 'jobboerse') !== -1): ?>
             <div class="formbody_edit">
-                <section class="ce_accordionSingle ce_accordion block">
-                    <div class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="false" aria-expanded="false" tabindex="0">
-                        Alle Optionen einblenden
-                    </div>
-                    <div class="accordion">
-                        <input type="hidden" name="FORM_SUBMIT" value="<?= specialchars($this->table); ?>"/>
-                        <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN; ?>"/>
-                        <?php if ($this->error): ?><p class="tl_error"><?= implode('<br />', $this->error); ?></p><?php endif; ?>
-                        <?php foreach ($this->fieldsets as $arrFieldset): ?>
-                            <?php if ($arrFieldset['legend']): ?>
-                                <fieldset id="pal_<?= specialchars($arrFieldset['legend']); ?>"
-                                          class="<?= $arrFieldset['class']; ?> block">
-                                    <?= $arrFieldset['palette']; ?>
-                                </fieldset>
-                            <?php else: ?>
-                                <fieldset class="<?= $arrFieldset['class']; ?> block nolegend">
-                                    <?= $arrFieldset['palette']; ?>
-                                </fieldset>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </div>
-                </section>
-            </div>
-            <div class="formbody_submit">
-                <div class="submit_container">
-                    <?= implode(' ', $this->editButtons); ?>
+            <section class="add-job ce_accordionSingle ce_accordion block">
+                <div class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="false" aria-expanded="false" tabindex="0">
+                    Eigene Anzeige aufgeben
                 </div>
+                <div class="accordion">
+                <input type="hidden" name="FORM_SUBMIT" value="<?= specialchars($this->table); ?>"/>
+                <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN; ?>"/>
+                  <?php foreach ($this->fieldsets as $arrFieldset): ?>
+                    <?php if ($arrFieldset['legend']): ?>
+                        <fieldset id="pal_<?= specialchars($arrFieldset['legend']); ?>" class="<?= $arrFieldset['class']; ?> block">
+                            <legend><?= $arrFieldset['label']; ?></legend>
+                            <?= $arrFieldset['palette']; ?>
+                        </fieldset>
+                    <?php else: ?>
+                      <fieldset class="<?= $arrFieldset['class']; ?> block nolegend">
+                        <?= $arrFieldset['palette']; ?>
+                      </fieldset>
+                    <?php endif; ?>
+                  <?php endforeach; ?>
+                <div class="formbody_submit">
+                    <div class="submit_container">
+                      <?= implode(' ', $this->editButtons); ?>
+                    </div>
+                </div>
+                </div>
+            </section>
             </div>
-        </form>
-
-    <?php else: ?>
-        <p>Hier gibt es nichts zu sehen</p>
-    <?php endif; ?>
-<?php endwhile; ?>
+    </form>
+<?php endif; ?>

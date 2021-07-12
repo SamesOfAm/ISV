@@ -1,0 +1,292 @@
+@import 'variables';
+
+.job-filter {
+  width: 90%;
+  max-width: 400px;
+  margin: 12px auto;
+}
+
+.fee-jobs {
+  width: 90%;
+  max-width: 400px;
+  margin: 5px auto;
+}
+
+.add-job,.job-filter-accordion {
+  background: $bright-orange;
+  border-radius: 3px;
+  .toggler {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: $toggler-padding;
+    &:after {
+      position: absolute;
+      top: 4px;
+      right: 9px;
+      content: "g";
+      font-family: "Weimar",sans-serif;
+      text-transform: none;
+      font-size: 21px;
+      transition: transform 250ms;
+    }
+    &.active:after {
+      transform: rotate(180deg);
+    }
+  }
+  .accordion {
+    padding: 0 10px 10px;
+    .clearall {
+      text-align: right;
+      font-size: 15px;
+    }
+    > fieldset {
+      font-size: 15px;
+      padding: 10px 0;
+      border-top: 1px solid;
+      legend {
+        width: 0;
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: 500;
+        transform: translateY(17px);
+      }
+      &:first-of-type {
+        > legend:first-child {
+          display: none;
+        }
+      }
+      fieldset {
+        legend {
+          display: none;
+        }
+      }
+      &.with-legend {
+        border-top: 1px solid;
+      }
+    }
+  }
+  .widget {
+    .radio_container {
+      span {
+        display: inline-block;
+        width: 100%;
+        padding: 1px 0;
+      }
+    }
+  }
+  .widget-text,.widget-textarea {
+    position: relative;
+    label {
+      position: absolute;
+      top: 32px;
+      left: 7px;
+      color: white;
+      font-size: 15px;
+      transition: top 250ms;
+    }
+    input,textarea {
+      width: 100%;
+      margin-top: 30px;
+      padding: 6px 10px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 3px;
+      color: white;
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+  }
+  .widget-radio {
+    &.prop-time {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid;
+    }
+    .radio_container {
+      span {
+        position: relative;
+        padding-left: 20px;
+        background: url("../layout/unselected.svg") no-repeat 0 7px/5%;
+        input {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .prop-privacy {
+    input {
+      opacity: 0;
+      transform: translateY(25px);
+    }
+    label {
+      position: relative;
+      display: inline-block;
+      padding-left: 25px;
+      line-height: 1em;
+      background: url('../layout/unselected.svg') no-repeat 2px 1px/5%;
+    }
+  }
+
+  .submit_container {
+    margin-top: 10px;
+    border-top: 1px solid;
+  }
+
+  #save {
+    position: relative;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    &:after {
+      content: 'C';
+      position: absolute;
+      top: 10px;
+      right: -25px;
+      font-weight: normal;
+      font-family: 'Weimar', sans-serif;
+    }
+  }
+
+  #saveNcreate {
+    display: none;
+  }
+}
+
+.job-filter-accordion .accordion {
+  font-size: 15px;
+  .widget {
+    border-top: 1px solid;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    select {
+      display: none;
+    }
+    label {
+      display: inline-block;
+      width: 100%;
+      padding-left: 20px;
+      background: url('../layout/unselected.svg') no-repeat 0 7px/5%;
+    }
+    &.used {
+      label {
+        background: white;
+        color: $middle-orange;
+        display: inline;
+        border-radius: 3px;
+        padding: 4px 7px;
+      }
+    }
+  }
+  .submit_container {
+    position: relative;
+    padding-top: 10px;
+    input {
+      border: none;
+      background: none;
+      color: white;
+      font-size: 15px;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-family: Barlow Semi Condensed, sans-serif;
+      cursor: pointer;
+    }
+    span.icon-font {
+      position: absolute;
+      font-size: 20px;
+      top: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+.job-list {
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto;
+  .job {
+    margin: 5px 0;
+    border-radius: 3px;
+    background: $bright-orange;
+    .job-inside {
+      position: relative;
+      font-size: 14px;
+      padding: 4px 0 20px 10px;
+      line-height: 1em;
+      .job-title {
+        display: inline-block;
+        margin: 5px 0;
+        padding-right: 30px;
+        line-height: 1.2em;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+      .job-teaser {
+        padding-right: 40px;
+      }
+      &:after {
+        position: absolute;
+        top: 50%;
+        right: 9px;
+        content: "C";
+        font-family: "Weimar",sans-serif;
+        text-transform: none;
+        font-size: 21px;
+        transition: transform 250ms;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+.job-detail {
+  .ce_metamodel_content {
+    background: $bright-orange;
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    margin-bottom: 50px;
+    h2 {
+      font-size: 20px;
+      text-transform: uppercase;
+      border-bottom: 1px solid;
+    }
+  }
+  .job-detail-teaser {
+    font-weight: 500;
+    line-height: 1em;
+  }
+  .job-detail-tags {
+    span {
+      padding: 4px 7px;
+      border-radius: 3px;
+      background: white;
+      color: $bright-orange;
+    }
+  }
+  .job-detail-contact {
+    h3 {
+      font-size: 16px;
+      text-transform: uppercase;
+      border-bottom: 1px solid;
+    }
+  }
+  .link-back {
+    font-size: 15px;
+  }
+  a {
+    text-decoration: underline;
+  }
+}

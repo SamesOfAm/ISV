@@ -1,0 +1,14 @@
+
+<a href="<?= $this->link ?>">
+    <div class="layout_latest_top arc_<?= $this->archive->id ?> block<?= $this->class ?>" itemscope itemtype="http://schema.org/Article">
+      <?php if ($this->hasMetaFields): ?>
+      <?php endif; ?>
+
+      <?php if ($this->addImage): ?>
+        <?php $this->insert('image', $this->arrData); ?>S
+      <?php endif; ?>
+
+        <h2 itemprop="name"><?php if(strlen($this->headline) < 40): ?><?= $this->headline ?><?php else: ?><?= substr($this->headline, 0, 40) ?>...<?php endif; ?></h2>
+    </div>
+
+</a>

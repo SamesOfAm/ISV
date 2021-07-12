@@ -1,0 +1,69 @@
+<?php if ($this->items[0]['isActive']): ?>
+    <div class="<?= $this->items[0]['class'] ?>">
+      <?php if ($this->items[0]['image']): ?>
+        <?php $this->insert('picture_default', $this->items[0]['image']->picture) ?>
+      <?php endif; ?>
+
+        <span class="<?= $this->items[0]['class'] ?>"<?php if ($this->items[0]['subitems']): ?> aria-haspopup="true"<?php endif; ?>>
+            <span class="name" itemprop="name">&times; Filter aufheben</span>
+
+          <?php if ($this->showQuantity): ?>
+              <span class="quantity">(<?= $this->items[0]['quantity'] ?>)</span>
+          <?php endif; ?>
+        </span>
+
+      <?= $this->items[0]['subitems'] ?>
+    </div>
+<?php else: ?>
+    <div class="<?= $this->items[0]['class'] ?>">
+        <a href="<?= $this->items[0]['href'] ?>" class="<?= $this->items[0]['class'] ?>" title="<?= $this->items[0]['linkTitle'] ?>" itemprop="url"<?php if ($this->items[0]['subitems']): ?> aria-haspopup="true"<?php endif; ?>>
+          <?php if ($this->items[0]['image']): ?>
+            <?php $this->insert('picture_default', $this->items[0]['image']->picture) ?>
+          <?php endif; ?>
+
+            <span class="name" itemprop="name">&times; Filter aufheben</span>
+
+          <?php if ($this->showQuantity): ?>
+              <span class="quantity">(<?= $this->items[0]['quantity'] ?>)</span>
+          <?php endif; ?>
+        </a>
+
+      <?= $this->items[0]['subitems'] ?>
+    </div>
+<?php endif; ?>
+<ul class="<?= $this->level ?><?php if ($this->isActiveCategories): ?> active-categories<?php endif; ?>">
+    <?php foreach (array_slice($this->items, 1) as $item): ?>
+        <?php if ($item['isActive']): ?>
+            <li class="<?= $item['class'] ?>">
+                <?php if ($item['image']): ?>
+                    <?php $this->insert('picture_default', $item['image']->picture) ?>
+                <?php endif; ?>
+
+                <span class="<?= $item['class'] ?>"<?php if ($item['subitems']): ?> aria-haspopup="true"<?php endif; ?>>
+                    <span class="name" itemprop="name"><?= $item['link'] ?></span>
+
+                    <?php if ($this->showQuantity): ?>
+                        <span class="quantity">(<?= $item['quantity'] ?>)</span>
+                    <?php endif; ?>
+                </span>
+
+                <?= $item['subitems'] ?>
+            </li>
+        <?php else: ?>
+            <a href="<?= $item['href'] ?>" class="<?= $item['class'] ?>" title="<?= $item['linkTitle'] ?>" itemprop="url"<?php if ($item['subitems']): ?> aria-haspopup="true"<?php endif; ?>>
+                <li class="<?= $item['class'] ?>">
+
+                        <?php if ($item['image']): ?>
+                            <?php $this->insert('picture_default', $item['image']->picture) ?>
+                        <?php endif; ?>
+
+                        <span class="name" itemprop="name"><?= $item['link'] ?></span>
+
+                        <?php if ($this->showQuantity): ?>
+                            <span class="quantity">(<?= $item['quantity'] ?>)</span>
+                        <?php endif; ?>
+                </li>
+            </a>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</ul>

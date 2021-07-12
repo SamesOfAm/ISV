@@ -1,0 +1,122 @@
+@import 'variables';
+
+.offer-accordion {
+  border-radius: 3px;
+  background: $brighter-green;
+  .toggler {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: $toggler-padding;
+    &:after {
+      position: absolute;
+      top: 4px;
+      right: 9px;
+      content: "g";
+      font-family: "Weimar",sans-serif;
+      text-transform: none;
+      font-size: 21px;
+      transition: transform 250ms;
+    }
+    &.active:after {
+      transform: rotate(180deg);
+    }
+  }
+  .accordion {
+    padding: 0 10px 10px;
+    > div {
+      border-top: 1px solid;
+    }
+    .clearall {
+      text-align: right;
+      font-size: 15px;
+    }
+  }
+}
+
+.offer-filter-checkboxes {
+  > span {
+    display: block;
+    > input {
+      display: none;
+    }
+    > label {
+      display: block;
+      padding-left: 25px;
+      background: url("../layout/unselected.svg") no-repeat 0 7px/5%;
+    }
+  }
+  legend {
+    display: none;
+  }
+}
+
+#offers > .ce_metamodel_content {
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.all-offers {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .store-offer {
+    width: 49%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    background: $brighter-green;
+    border-radius: 3px;
+    height: 125px;
+    line-height: 1em;
+    margin: 5px 0;
+    h2 {
+      margin-top: 0;
+      font-size: 15px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .special_offers {
+      font-size: 13px;
+    }
+  }
+}
+
+.offer-filter-content {
+  span input {
+    display: none;
+  }
+  label {
+    display: block;
+    padding-left: 20px;
+    background: url("../layout/unselected.svg") no-repeat 0 7px/5%;
+  }
+  .submit_container {
+    position: relative;
+    padding-top: 10px;
+    input {
+      border: none;
+      background: none;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-family: Barlow Semi Condensed,sans-serif;
+      cursor: pointer;
+    }
+    span.icon-font {
+      position: absolute;
+      font-size: 20px;
+      top: 12px;
+      cursor: pointer;
+    }
+  }
+}
+
+#store-type-filter,#restaurant-type-filter {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid;
+}

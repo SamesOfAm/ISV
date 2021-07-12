@@ -17,7 +17,7 @@
                         <?php if ((isset($arrItem[$this->getFormat()][$field])
                                    && ($strValue = $arrItem[$this->getFormat()][$field])
                                    || (isset($arrItem['text'][$field]) && ($strValue = $arrItem['text'][$field])))): ?>
-                            <?php if(strpos($field, 'open_') === false): ?>
+                            <?php if(strpos($field, 'open_') === false && strpos($field, 'logo') === false && strpos($field, 'photo') === false): ?>
 
                                 <div class="overview-field <?= $field ?>">
                                     <?php if (!$this->view->get('hideLabels')): ?>

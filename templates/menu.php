@@ -1,0 +1,1 @@
+<a class="menu-close" href="#" data-mobile-menu="close">×</a>

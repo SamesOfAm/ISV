@@ -1,0 +1,34 @@
+<?php if (count($this->data)): ?>
+
+    <div class="layout_full">
+
+        <?php foreach ($this->data as $arrItem): ?>
+            <?php $this->block('item'); ?>
+            <div class="item job-detail-card <?= $arrItem['class'] ?>">
+                <h2><?= $arrItem['text']['title'] ?></h2>
+                <div class="job-detail-teaser">
+                    <p><?= $arrItem['text']['teaser'] ?></p>
+                </div>
+                <div class="job-detail-description">
+                    <p><?= $arrItem['text']['description'] ?></p>
+                </div>
+                <div class="job-detail-tags">
+                    <span><?= $arrItem['text']['time'] ?></span>
+                    <span><?= $arrItem['text']['type'] ?></span>
+                </div>
+                <div class="job-detail-contact">
+                    <h3>Kontaktperson</h3>
+                    <p>
+                        <?= $arrItem['text']['employer_name'] ?> <?= $arrItem['text']['employer_lastname'] ?><br>
+                        <a href="tel:<?= $arrItem['text']['employer_phone'] ?>"><?= $arrItem['text']['employer_phone'] ?></a><br>
+                        <a href="mailto:<?= $arrItem['text']['employer_mail'] ?>"><?= $arrItem['text']['employer_mail'] ?></a><br>
+                    </p>
+                </div>
+            </div>
+            <?php $this->endblock(); ?>
+        <?php endforeach; ?>
+        <div class="link-back">
+            < {{link::back}}
+        </div>
+    </div>
+<?php endif; ?>

@@ -2,66 +2,101 @@
 
 @font-face {
   font-family: "Weimar";
-  src: url("https://weimar.app/files/assets/fonts/weimar.woff?hglndo") format('woff');
+  src: url("../fonts/weimar.woff?hglndo") format('woff'), url("../fonts/weimar.ttf") format('truetype');
   font-style: normal;
   font-weight: 400;
 }
 
 body {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
   font-family: 'Barlow Semi Condensed', sans-serif;
   margin: 0;
   color: white;
   font-size: 19px;
   line-height: 1.5em;
   letter-spacing: 0.5px;
-  #wrapper {
-    min-height: 100vh;
-    background-image: linear-gradient(200deg, rgb(196,201,184), rgb(20,97,110) 70%);
-  }
 }
 
-a {
-  color: white;
-  text-decoration: none;
-  font-variant-caps: small-caps;
-  transition: color 250ms;
-  &:hover {
-    color: $middle-orange;
-  }
-}
-
-.link-secondary a {
+#wrapper {
   width: 100%;
-  display: block;
-  border: 1px solid;
-  border-radius: 5px;
-  padding: 12px;
-  text-align: center;
-  box-sizing: border-box;
-  transition: background-color 250ms;
-  &:hover {
-    background-color: rgba(255,255,255,0.4);
-  }
 }
 
+#container #main .inside {
+  float: right;
+}
 
 .mod_article {
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
-  background-color: rgba(0,0,0,0.1);
-  h1 {
-    text-align: center;
-    line-height: 1.1em;
-    letter-spacing: 1.2px;
+  overflow: visible;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#main .mod_article.first > .ce_image:first-child {
+  position: fixed;
+  top: 0;
+  z-index: -100;
+  background: rgba(0,0,0,0.5);
+  img {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
   }
+}
+
+.headline {
+  margin: 0 20px;
+  h1 {
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1em;
+  }
+  p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.1em;
+  }
+}
+
+.headline + div, .headline + section,.standard-width {
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 .icon-font {
   font-family: 'Weimar', sans-serif;
   font-size: 22px;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.map {
+  height: 400px;
+  width: 100%;
+}
+
+.no-items-found {
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: $desktop) {
@@ -76,8 +111,13 @@ a {
 @import 'main';
 @import 'accordion';
 @import 'footer';
-@import 'login';
-@import 'fee';
 @import 'overview';
-@import 'store-list';
+@import 'item-list';
 @import 'homepage';
+@import 'news';
+@import 'calendar';
+@import 'job';
+@import 'offers';
+@import 'map';
+@import 'detail';
+@import 'tabcontrol';

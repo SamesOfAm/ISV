@@ -1,0 +1,19 @@
+<?php if (count($this->data)): ?>
+    <div class="job-list layout_full">
+        <?php foreach ($this->data as $job): ?>
+            <section class="job">
+                <a href="<?= $job['jumpTo']['url'] ?>">
+                    <div class="job-inside">
+                        <span class="job-title"><?= $job['text']['title'] ?> | <?= $job['text']['type'] ?></span><br>
+                        <span class="job-teaser"><?= $job['text']['teaser'] ?></span>
+                    </div>
+                </a>
+            </section>
+        <?php endforeach; ?>
+    </div>
+<?php else: ?>
+    <p class="no-items-found">Keine Stellenangebote gefunden</p>
+<?php endif; ?>
+
+
+
