@@ -5,49 +5,49 @@
 }
 
 .login-window {
-  position: fixed;
-  top: 33%;
-  left: 50%;
-  width: 95%;
-  max-width: 500px;
-  padding: 20px;
-  box-sizing: border-box;
-  transform: translateY(-50%) translateX(-50%);
-  background-color: rgba(0,0,0,0.1);
   form .formbody .widget {
-    margin: 8px 0;
-    display: flex;
-    justify-content: space-between;
     label {
-      width: 30%;
-      padding: 0;
-      margin: 0;
-      border: none;
+      text-transform: uppercase;
+      font-size: 15px;
+      width: 100%;
+      display: block;
+      margin: 5px 0;
     }
     input {
-      width: 60%;
-      margin: 0;
-      padding: 4px 7px;
+      display: block;
+      width: 100%;
+      border: none;
+      border-radius: 3px;
       box-sizing: border-box;
-      font-family: 'Barlow Semi Condensed', serif;
-      border: 1px solid #555;
-      transition: border-color 250ms;
-      &:hover {
-        border-color: #0e0e0e;
-      }
+      padding: 8px 10px;
+      font-size: 15px;
+      margin: 5px 0;
+      outline: none;
     }
   }
-  .widget-submit button {
-    font-family: 'Barlow Semi Condensed', serif;
+  .widget-submit button, .link-secondary p a {
+    background-color: $bright-green;
     border: none;
-    background: $middle-orange;
+    border-radius: 3px;
+    padding: 10px 12px;
     color: white;
-    border-radius: 0;
-    padding: 8px 11px;
+    text-transform: uppercase;
+    font-family: Barlow Semi Condensed, sans-serif;
+    font-weight: 500;
+    width: 50%;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1em;
+    margin: 5px 0;
     cursor: pointer;
     transition: background-color 250ms;
     &:hover {
-      background-color: $bright-orange;
+      background-color: #B3C6C0FF;
     }
+  }
+  .link-secondary {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
   }
 }

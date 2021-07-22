@@ -1,6 +1,3 @@
-<?php
-    $GLOBALS['TL_LANG']['MSC']['goBack'] = '< Zurück';
-?>
 <div class="layout_full block<?= $this->class ?>" itemscope itemtype="http://schema.org/Article">
 
       <p class="info">

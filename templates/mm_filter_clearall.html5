@@ -1,4 +1,4 @@
 <div class="clearall">
     <a title="<?= $GLOBALS['TL_LANG']['metamodels_frontendfilter']['clear_all'] ?>"
-       href="<?= $this->href ?>">× Filter aufheben</a>
+       href="<?= $this->href ?>">Filter aufheben</a>
 </div>

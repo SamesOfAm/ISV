@@ -54,7 +54,7 @@ if(window.location.pathname.indexOf("/jobboerse") !== -1){
         document.querySelector('.widget.time').appendChild(radioOption);
         radioOption.addEventListener('click', function(){
             const allLabels = document.querySelector('.widget.time').querySelectorAll('label');
-            for(let j = 1; j < timeOptions.length-1; j++) {
+            for(let j = 0; j < timeOptions.length-1; j++) {
                 timeOptions[j].selected = false;
                 allLabels[j].style.backgroundImage = 'url("files/assets/layout/unselected.svg")';
             }
@@ -76,7 +76,7 @@ if(window.location.pathname.indexOf("/jobboerse") !== -1){
         document.querySelector('.widget.type').appendChild(radioOption);
         radioOption.addEventListener('click', function(){
             const allLabels = document.querySelector('.widget.type').querySelectorAll('label');
-            for(let j = 1; j < typeOptions.length-1; j++){
+            for(let j = 0; j < typeOptions.length-1; j++){
                 typeOptions[j].selected = false;
                 allLabels[j].style.backgroundImage = 'url("files/assets/layout/unselected.svg")';
             }
@@ -88,14 +88,14 @@ if(window.location.pathname.indexOf("/jobboerse") !== -1){
         }
     }
 
-    // Den "Filter aufheben"-Button richtig benennen und ggfs. ausblenden
+    // Den "Filter aufheben"-Button ggfs. ausblenden und an die richtige Stelle rücken
 
     const filterClearAll = document.querySelector('.clearall');
     document.getElementById('job-article').removeChild(filterClearAll);
-    document.querySelector('.job-filter-accordion').querySelector('.accordion').insertBefore(filterClearAll, document.querySelector('.widget.time'));
+    document.querySelector('.job-filter-accordion').querySelector('.accordion').appendChild(filterClearAll);
 
     if(!document.querySelector('.used')) {
-        document.querySelector('.clearall').style.display = "none";
+        document.querySelector('.clearall').querySelector('a').style.display = "none";
     }
 }
 

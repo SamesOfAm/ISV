@@ -28,7 +28,7 @@
             <?php $this->endblock(); ?>
         <?php endforeach; ?>
         <div class="link-back">
-            < {{link::back}}
+            {{link::back}}
         </div>
     </div>
 <?php endif; ?>

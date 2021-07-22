@@ -33,6 +33,16 @@
   position: absolute;
   bottom: 10px;
   right: 0;
+  transform: translateX(-7px);
+}
+
+.contrast-button a {
+  cursor: pointer;
+  img {
+    max-width: initial;
+    width: 22px;
+    transform: translateY(3px);
+  }
 }
 
 .header-right-bottom {

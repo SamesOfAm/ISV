@@ -79,6 +79,9 @@
                             <div>
                                 <div class="ce_text block">
                                     <p><?= $store['text']['desc'] ?></p>
+                                    <?php if($store['text']['website']): ?>
+                                        <p><a style="text-decoration:underline" target="_blank" href="<?= $store['text']['website'] ?>">Zur Website</a></p>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -86,9 +89,12 @@
                 </div>
             </div>
 
-            <div class="store-detail-offer">
-                <span><?= str_replace('!', '', $store['text']['special_offers']); ?></span>
-            </div>
+            <?php if($store['text']['special_offers']): ?>
+                <div class="store-detail-offer">
+                    <span><?= str_replace('!', '', $store['text']['special_offers']); ?></span>
+                </div>
+            <?php endif; ?>
+
 
             <!-- indexer::stop -->
             <script>function loadTabControl_140(){window.TC_140=new Array();i=0;$$('#tabcontrol_140').each(function(s){i++;elements=s.getElements('.tabs');if(elements.length){var tcControl=new TabControl(s,{delay:2500,tab_remember:0,tab_cookiename:'tabcontrollcookie-134',tab_control:'tabcontrol_140',behaviour:'click',tabs:s.getElements('.tabs'),panes:s.getElements('.panes'),selectedClass:'selected',hoverClass:'hover'});window.addEvent("hashchange",function(){tcControl.onTabHashChange()});window.TC_140[i]=tcControl}})}(function($){window.addEvent('domready',loadTabControl_140)})(document.id)</script>
@@ -131,7 +137,7 @@
 
     <div class="bottom-links">
         <div class="link-to-shop">
-            <a href="#">Zum Onlineshop</a>
+            <a href="<?= $store['text']['onlineshop'] ?>" target="_blank">Zum Onlineshop</a>
         </div>
         <div class="link-back">
             {{link::back}}

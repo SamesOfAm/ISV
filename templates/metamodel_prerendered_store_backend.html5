@@ -13,11 +13,22 @@
                 <?php $this->block('item'); ?>
                 <div class="overview-list <?= $arrItem['class'] ?>">
 
+                  <?php if($arrItem['raw']['active'] === '1'): ?>
+                      <div class="overview-field active-status">
+                          <p>Der Shop ist veröffentlicht
+                          </p>
+                      </div>
+                  <?php else: ?>
+                      <div class="overview-field active-status">
+                          <p>Der Shop ist nicht veröffentlicht
+                          </p>
+                      </div>
+                  <?php endif; ?>
                     <?php foreach ($arrItem['attributes'] as $field => $strName): ?>
                         <?php if ((isset($arrItem[$this->getFormat()][$field])
                                    && ($strValue = $arrItem[$this->getFormat()][$field])
                                    || (isset($arrItem['text'][$field]) && ($strValue = $arrItem['text'][$field])))): ?>
-                            <?php if(strpos($field, 'open_') === false && strpos($field, 'logo') === false && strpos($field, 'photo') === false): ?>
+                            <?php if(strpos($field, 'open_') === false && strpos($field, 'logo') === false && strpos($field, 'photo') === false && strpos($field, 'active') === false): ?>
 
                                 <div class="overview-field <?= $field ?>">
                                     <?php if (!$this->view->get('hideLabels')): ?>

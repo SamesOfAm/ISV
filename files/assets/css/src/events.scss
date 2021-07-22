@@ -1,0 +1,15 @@
+@import 'variables';
+
+.mod_eventreader {
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  .event {
+    h1 {
+      font-size: 25px;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: $dark-orange;
+    }
+  }
+}

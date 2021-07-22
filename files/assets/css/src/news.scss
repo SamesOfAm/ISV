@@ -19,11 +19,12 @@
     }
     .caroufredsel_wrapper {
       height: 80px !important;
+      z-index: 100 !important;
+      transform: translateX(20px) scale(0.9);
     }
     .caroufredsel {
       top: 50% !important;
       transform: translateY(-50%);
-      padding: 0 35px;
       h2 {
         font-size: 18px;
         font-weight: 500;
@@ -110,11 +111,10 @@
       margin: 0;
     }
   }
-  a {
-    text-decoration: underline;
-  }
-  .link-back {
-    font-size: 15px;
+  .ce_text {
+    a {
+      text-decoration: underline;
+    }
   }
 }
 

@@ -1,137 +1,180 @@
 @import 'variables';
 
-
-.ce_metamodels_frontendediting {
-  > h2:first-child {
-    display: none;
+#mm_store .link-back {
+  margin-top: 10px;
+  width: 48%;
+  display: inline-block;
+  a {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding: 10px 35px;
+    font-size: 15px;
+    background: $bright-green;
+    border-radius: 3px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    line-height: 1em;
+    &:before {
+      position: absolute;
+      text-transform: none;
+      content: 'd';
+      font-family: 'Weimar', sans-serif;
+      top: 10px;
+      left: 12px;
+    }
   }
-  form .formbody_edit fieldset {
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-    border: none;
-    legend {
-      display: none;
+}
+
+.edit-window .ce_metamodels_frontendediting {
+  form .formbody_edit .widget {
+    margin: 10px 0;
+    padding-bottom: 10px;
+    &:not(:last-child) {
+      border-bottom: 1px solid;
     }
-    .widget {
-      margin: 20px 0;
+    label {
+      text-transform: uppercase;
+      font-size: 15px;
+      width: 100%;
+      display: block;
+      margin: 5px 0;
     }
-    .widget-text:not(.prop-int_name) {
-      display: flex;
-      justify-content: space-between;
-      label {
-        width: 40%;
-        margin-top: 5px;
-      }
-      input {
-        width: 60%;
-        padding: 4px 7px;
-        box-sizing: border-box;
-        font-family: 'Barlow Semi Condensed', sans-serif;
-        border: 1px solid #555;
-        transition: border-color 250ms;
-        &:hover {
-          border-color: #0e0e0e;
-        }
-      }
-      &.datepicker {
-        display: block;
-        label {
-          display: block;
-          width: 100%;
-          font-size: 17px;
-        }
-        input {
-          width: 100%;
-        }
-      }
-      &.prop-open_mon_to,&.prop-open_tue_to,&.prop-open_wed_to,&.prop-open_thu_to,&.prop-open_fri_to,&.prop-open_sat_to,&.prop-open_sun_to {
-        width: 45%;
-        float: right;
-        margin: 8px 0;
-      }
-      &.prop-open_mon_from,&.prop-open_tue_from,&.prop-open_wed_from,&.prop-open_thu_from,&.prop-open_fri_from,&.prop-open_sat_from,&.prop-open_sun_from {
-        width: 45%;
-        float: left;
-        margin: 8px 0;
-      }
+    input,textarea,select {
+      display: block;
+      width: 100%;
+      border: none;
+      border-radius: 3px;
+      box-sizing: border-box;
+      padding: 8px 10px;
+      font-size: 15px;
+      margin: 5px 0;
+      outline: none;
+      font-family: 'Barlow Semi Condensed', sans-serif;
     }
-    .widget-upload {
-      border: 1px solid;
-      padding: 20px;
-      > label {
-        display: block;
-        width: 100%;
-        border-bottom: 1px solid;
-      }
-      ul {
-        margin: 15px 0;
-        padding: 0;
-        list-style: none;
-        img {
-          width: 200px;
-        }
-      }
-      .dropzone {
-        border: 4px dashed $dark-green;
-        border-radius: 10px;
-        &.dropzone .dz-message span {
-          color: black;
+    &.widget-upload {
+      .tl_tbox {
+        .dropzone {
+          min-height: initial;
+          border: none;
+          border-radius: 3px;
+          background: #8aa69e;
+          padding: 10px 12px;
+          width: 50%;
+          line-height: 1em;
+          .dz-message {
+            margin: 0;
+            text-align: left;
+            span {
+              color: white;
+              text-transform: uppercase;
+              font-size: 15px;
+            }
+          }
         }
       }
       .file-name {
         display: none;
       }
-      .file-container ~ .tl_tbox {
-        display: none;
-      }
-      .tl_tbox {
-        margin-top: 20px;
-      }
-      &.prop-logo,&.prop-photo {
-        .file-action {
-          input {
-            width: 15px;
-            height: 15px;
-            cursor: pointer;
-          }
-          label {
-            cursor: pointer;
-          }
+      .file-reset {
+        label {
+          width: 50%;
+          padding: 10px 12px;
+          background: #8aa69e;
+          line-height: 1em;
+          border-radius: 3px;
+          box-sizing: border-box;
+          cursor: pointer;
+        }
+        input {
+          display: none;
         }
       }
     }
-  }
-  .widget-textarea {
-    label {
-      display: block;
-      width: 100%;
+    &.widget-checkbox {
+      span {
+        display: block;
+        width: 100%;
+        input {
+          display: inline;
+          width: 20px;
+        }
+        label {
+          display: inline;
+        }
+      }
     }
-    textarea {
-      display: block;
-      width: 100%;
-      padding: 4px 7px;
-      box-sizing: border-box;
-      margin: 10px 0;
-      font-family: 'Barlow Semi Condensed', serif;
-      border: 1px solid #555;
+    &.datepicker,&.prop-street,&.prop-street_number,&.prop-zip,&.prop-city {
+      display: inline-block;
+      width: 45%;
+      margin: 0;
+      border-bottom: none;
+    }
+    &.datepicker input {
+      // display: none;
+    }
+    &.prop-tags {
+      label {
+        padding-left: 25px;
+        background: url('../layout/unselected.svg') no-repeat 0 5px/5%;
+        text-transform: none;
+      }
+    }
+    #ctrl_tags {
+      display: none;
     }
   }
-  .formbody_submit button {
-    font-family: 'Barlow Semi Condensed', serif;
+  .submit_container button,.link-to-jobs a,.detail-link a {
+    display: inline-block;
+    background-color: $bright-green;
+    width: 100%;
     border: none;
-    background: $middle-orange;
+    border-radius: 3px;
+    padding: 10px 12px;
     color: white;
-    border-radius: 0;
-    padding: 8px 11px;
-    transition: background-color 250ms;
+    text-transform: uppercase;
+    font-family: Barlow Semi Condensed, sans-serif;
+    font-weight: 500;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1em;
+    box-sizing: border-box;
+    margin: 5px 0;
     cursor: pointer;
+    transition: background-color 250ms;
     &:hover {
-      background-color: $bright-orange;
+      background-color: #B3C6C0FF;
+    }
+  }
+  .detail-link {
+    float: left;
+    width: 48%;
+  }
+  .link-to-jobs {
+    margin: 15px 0;
+    a {
+      width: 100%;
+      background-color: $brighter-green;
+    }
+  }
+  .formbody_submit {
+    width: 48%;
+    float: right;
+    button {
+      width: 100%;
+    }
+  }
+  .welcome-message {
+    font-size: 15px;
+    font-weight: bold;
+    color: $bright-green;
+    text-transform: uppercase;
+    p {
+      margin-bottom: 10px;
+      margin-top: 0;
+      padding-bottom: 7px;
+      border-bottom: 1px solid white;
     }
   }
 }
 
-.widget.prop-int_name {
-  display: none;
-}

@@ -25,7 +25,7 @@
   }
 }
 
-#main .mod_customnav {
+#main .mod_customnav,.mobile_menu .inner .mod_customnav {
   width: 90%;
   max-width: 400px;
   margin: 25px auto;
@@ -38,7 +38,7 @@
     justify-content: space-between;
     max-width: 400px;
     margin: 0 auto;
-    li a:not(.last) {
+    li a:not(.last),li strong:not(.last) {
       border-right: 1px solid;
       padding-right: 6px;
     }

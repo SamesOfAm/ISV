@@ -77,6 +77,11 @@ a {
   color: white;
 }
 
+.arrow-right-after span.icon-font {
+  position: relative;
+  top: 3px;
+}
+
 .icon-font {
   font-family: 'Weimar', sans-serif;
   font-size: 22px;
@@ -97,6 +102,148 @@ fieldset {
   width: 90%;
   max-width: 400px;
   margin: 0 auto;
+}
+
+a,div {
+  outline: none;
+}
+
+
+.link-logout {
+  margin-top: 10px;
+  display: inline;
+  a {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    padding: 10px 35px;
+    font-size: 15px;
+    background: #8aa69e;
+    border-radius: 3px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    line-height: 1em;
+    &:before {
+      position: absolute;
+      text-transform: none;
+      content: 'J';
+      font-family: 'Weimar', sans-serif;
+      top: 10px;
+      left: 12px;
+    }
+  }
+}
+
+
+.link-back a {
+  position: relative;
+  padding-left: 25px;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  &:before {
+    content: 'd';
+    position: absolute;
+    font-family: 'Weimar', sans-serif;
+    left: 0;
+    top: -5px;
+    text-transform: none;
+    font-size: 20px;
+  }
+}
+
+body.high-contrast {
+  color: black;
+  background-color: rgba(0,0,0,.05);
+  a,
+  .ce_text p,
+  .search .widget-submit button,
+  .shop-list-filter .accordion .submit_container input,
+  .store-detail-tags,
+  .job-filter-accordion .accordion .submit_container input,
+  .add-job .widget-text label,
+  .add-job .widget-textarea label,
+  .job-filter-accordion .widget-text label,
+  .job-filter-accordion .widget-textarea label,
+  .add-job #save, .job-filter-accordion #save,
+  .mod_calendar .minicalendar .days.active a,
+  .mod_calendar .minicalendar thead > tr:nth-child(2) th,
+  .mod_eventreader .event h1 {
+    color: black;
+  }
+  .ol-overlaycontainer-stopevent > div button,
+  .homepage-links .link-icon,
+  .link-text,.top-news .caroufredsel_skin,
+  .mod_newscategories ul li,
+  .mod_newslist .layout_latest,
+  .mod_newslist .layout_latest .info,
+  .item .item-inner .item-info,
+  .item .item-inner .item-info:after,
+  .item .special_offers,
+  .ce_tabcontrol .tabcontrol_tabs ul li,
+  .ce_tabcontrol .tabcontrol_panes,
+  .store-detail-offer,
+  .bottom-links > div,
+  .all-offers .store-offer,
+  .mod_calendar,
+  .mod_calendar .minicalendar .days.selected,
+  .ce_accordion.event-filter,
+  .mod_eventlist .event.layout_list,
+  .mod_eventlist .event.layout_list .time,
+  .login-window .widget-submit button, .login-window .link-secondary p a {
+    color: black;
+    background-color: white;
+    border: 1px solid;
+    border-radius: 3px;
+    box-shadow: none;
+  }
+  .logo img {
+    filter: brightness(0%);
+  }
+  .contrast-button {
+    filter: brightness(0%);
+  }
+  #main {
+    .mod_article.first > .ce_image:first-child {
+      display: none;
+    }
+  }
+  .shop-list-filter {
+    background-color: #e6e6e6;
+    border: 1px solid;
+  }
+  .ce_tabcontrol .tabcontrol_tabs ul li.selected {
+    border-bottom: none;
+  }
+  .ce_tabcontrol .tabcontrol_panes {
+    border-top: none;
+  }
+  .offer-accordion,.add-job,.job-filter-accordion,.job-list .job {
+    background-color: #e6e6e6;
+    border: 1px solid;
+  }
+  .add-job .widget-text input, .add-job .widget-text textarea, .add-job .widget-textarea input, .add-job .widget-textarea textarea, .job-filter-accordion .widget-text input, .job-filter-accordion .widget-text textarea, .job-filter-accordion .widget-textarea input, .job-filter-accordion .widget-textarea textarea {
+    background: white;
+    box-sizing: border-box;
+    color: black;
+  }
+  .mod_calendar .minicalendar .days.active a {
+    text-decoration: underline;
+  }
+  .mobile_menu .inner {
+    background: #e6e6e6;
+  }
+  #footer {
+    background-color: rgba(0,0,0,.05);
+    .inside .ce_text {
+      p:first-child {
+        color: black;
+      }
+      div.logo-placeholder-wrapper .logo-placeholder {
+        background-color: black;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: $desktop) {
@@ -121,3 +268,8 @@ fieldset {
 @import 'map';
 @import 'detail';
 @import 'tabcontrol';
+@import 'login';
+@import 'overview';
+@import 'fee';
+@import 'search';
+@import 'events';

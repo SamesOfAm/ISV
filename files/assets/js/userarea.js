@@ -3,38 +3,102 @@ jQuery(document).ready(function(){
     // Klarer formulierte Labels im Nutzerbereich, wo Foto und Logo gelöscht werden können
 
     if(document.getElementById('files_photo')){
-        document.getElementById('files_photo').querySelector('label').innerHTML = "Foto entfernen (wird nach Klick auf Speichern gelöscht)";
+        document.getElementById('files_photo').querySelector('label').innerHTML = "Foto löschen";
     }
 
     if(document.getElementById('files_logo')){
-        document.getElementById('files_logo').querySelector('label').innerHTML = "Logo entfernen (wird nach Klick auf Speichern gelöscht)";
+        document.getElementById('files_logo').querySelector('label').innerHTML = "Logo löschen";
     }
 
+    // Screengröße herausfinden und entsprechenden Text für Bilder-Uploads im Nutzerbereich anzeigen
 
-    // Im Nutzerbereich das Eingabefeld für Sonderangebote, Rabatte, etc. aus dem Akkordeon herausholen, damit es schnell zu bearbeiten ist
+    const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
-    if(document.querySelector('.prop-special_offers')) {
-        const field = document.querySelector('.prop-special_offers');
-        const parent = document.getElementById('pal_legend1');
-        const newParent = document.querySelector('.formbody_edit');
-        parent.removeChild(field);
-        newParent.appendChild(field);
-    }
-
-
-    // Screengröße herausfinden und entsprechenden Text anzeigen, wo im Nutzerbereich Dateien für Foto und Logo hochheladen werden können
-
-    const ratio = window.devicePixelRatio || 1;
-    const w = screen.width * ratio;
-    const h = screen.height * ratio;
-    if(document.getElementById('dropzone_photo') && w >= 800){
+    if(document.getElementById('dropzone_photo') && width >= 800){
         document.getElementById('dropzone_photo').querySelector('.dz-message').querySelector('span').innerHTML = 'Foto Ihres Geschäfts hierher ziehen oder hier klicken';
-    } else if(document.getElementById('dropzone_photo') && w <= 800) {
-        document.getElementById('dropzone_photo').querySelector('.dz-message').querySelector('span').innerHTML = 'Hier tippen, um Foto Ihres Geschäfts hochzuladen';
+    } else if(document.getElementById('dropzone_photo') && width <= 800) {
+        document.getElementById('dropzone_photo').querySelector('.dz-message').querySelector('span').innerHTML = 'Foto hochladen';
     }
-    if(document.getElementById('dropzone_logo') && w >= 800){
+    if(document.getElementById('dropzone_logo') && width >= 800){
         document.getElementById('dropzone_logo').querySelector('.dz-message').querySelector('span').innerHTML = 'Logo Ihres Geschäfts hierher ziehen oder hier klicken';
-    } else if(document.getElementById('dropzone_logo') && w <= 800) {
-        document.getElementById('dropzone_logo').querySelector('.dz-message').querySelector('span').innerHTML = 'Hier tippen, um Logo Ihres Geschäfts hochzuladen';
+    } else if(document.getElementById('dropzone_logo') && width <= 800) {
+        document.getElementById('dropzone_logo').querySelector('.dz-message').querySelector('span').innerHTML = 'Logo hochladen';
     }
+
+
+    // Löschen von Foto und Logo nutzerfreundlicher machen, indem ein Klick auf das Label das Formular abschickt
+
+    const allResetButtons = document.querySelectorAll('.file-reset');
+    allResetButtons.forEach(button => button.children[0].addEventListener('click', function(){
+        button.children[1].checked = true;
+        console.log(button.children[1].checked);
+        document.getElementById('mm_store').submit();
+    }))
+
+    if(document.querySelector('.edit-window')) {
+        if(document.querySelector('.prop-logo').querySelector('.file-container') !== null) {
+            document.querySelector('.prop-logo').querySelector('.tl_tbox').style.display = "none";
+        }
+
+        if(document.querySelector('.prop-photo').querySelector('.file-container') !== null) {
+            document.querySelector('.prop-photo').querySelector('.tl_tbox').style.display = "none";
+        }
+    }
+
+
+    if(document.getElementById('ctrl_tags')){
+        const tags = document.getElementById('ctrl_tags').querySelectorAll('span');
+        for(let i = 0; i < tags.length; i++) {
+            const radioOption = document.createElement('label');
+            const textNode = document.createTextNode(tags[i].innerText);
+            radioOption.appendChild(textNode);
+            document.querySelector('.widget.prop-tags').appendChild(radioOption);
+            radioOption.addEventListener('click', function(){
+                const allLabels = jQuery('.widget.prop-tags').children('label');
+                tags[i].firstChild.checked = !tags[i].firstChild.checked;
+                if(tags[i].firstChild.checked){
+                    allLabels[i].style.backgroundImage = 'url("files/assets/layout/selected.svg")';
+                } else {
+                    allLabels[i].style.backgroundImage = 'url("files/assets/layout/unselected.svg")';
+                }
+            });
+            if(tags[i].firstChild.checked) {
+                radioOption.style.backgroundImage = 'url("files/assets/layout/selected.svg")';
+            }
+        }
+    }
+
+    /* if(document.querySelector('.widget.datepicker')) {
+        let hours = [], j, k;
+        for( j=0; j<24; j++) {
+            for(k=0; k<2; k++) {
+                hours.push(j + ":" + (k===0 ? "00" : 30*k) );
+            }
+        }
+        const allPickers = document.querySelectorAll('.widget.datepicker');
+        for(let i = 0; i < allPickers.length; i++) {
+            const dropdown = document.createElement('select');
+
+            for(let l = 0; l < hours.length; l++) {
+                const option = document.createElement('option');
+                option.value = hours[l];
+                option.innerHTML = hours[l];
+                dropdown.appendChild(option);
+            }
+
+            dropdown.addEventListener('change', function() {
+                dropdown.parentElement.querySelector('input').value = dropdown.selectedOptions[0].value;
+                console.log(dropdown.parentElement.querySelector('input').value);
+            });
+
+
+            allPickers[i].appendChild(dropdown);
+            dropdown.value = allPickers[i].querySelector('input').value;
+
+
+
+
+        }
+    } */
+
 });

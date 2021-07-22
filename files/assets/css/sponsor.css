@@ -1,0 +1,15 @@
+.sponsor-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.sponsor-close a {
+    color: white;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.sponsor-full-screen figure {
+    margin-bottom: -6px;
+}

@@ -1,12 +1,14 @@
 <div class="all-offers">
   <?php foreach ($this->data as $store): ?>
-    <div class="store-offer">
-        <a href="#">
-          <div class="store-offer-name">
-            <h2><?= str_replace('!', '', $store['text']['special_offers']); ?></h2>
-          </div>
-          <div class="special_offers"><?= $store['text']['name'] ?><br><?= $store['text']['street'] ?> <?= $store['text']['street_number'] ?></div>
-        </a>
-    </div>
+    <?php if($store['text']['special_offers'] !== ''): ?>
+        <div class="store-offer">
+            <a href="<?php if($store['raw']['type']['mm_store_id'] !== null): ?>{{link_url::27}}<?php else: ?>{{link_url::28}}<?php endif; ?>/<?= $store['raw']['alias'] ?>">
+              <div class="store-offer-name">
+                <h2><?= str_replace('!', '', $store['text']['special_offers']); ?></h2>
+              </div>
+              <div class="special_offers"><?= $store['text']['name'] ?><br><?= $store['text']['street'] ?> <?= $store['text']['street_number'] ?></div>
+            </a>
+        </div>
+    <?php endif; ?>
   <?php endforeach; ?>
 </div>

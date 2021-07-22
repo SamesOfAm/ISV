@@ -1,14 +1,38 @@
 @import 'variables';
 
+.overview-window {
+  .link-logout {
+    display: block;
+  }
+}
+
+.overview-list {
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+}
 
 .overview-field.int_name {
   display: none;
 }
 
 .overview-field {
-  margin: 30px 0;
+  margin: 10px 0;
+  padding-bottom: 10px;
+  &:not(:last-child,.opening-hours) {
+    border-bottom: 1px solid;
+  }
   .label {
     font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+  &.active-status p {
+    background: white;
+    color: $dark-green;
+    padding: 10px 12px;
+    display: inline-block;
+    border-radius: 3px;
   }
 }
 
@@ -17,15 +41,21 @@
 }
 
 .actions a {
-  display: inline-block;
-  margin: 22px 0;
+  background-color: $bright-green;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 12px;
   color: white;
-  background-color: $middle-orange;
-  text-decoration: none;
-  padding: 8px 11px;
-  box-sizing: border-box;
+  text-transform: uppercase;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  width: 50%;
+  text-align: left;
+  margin: 5px 0;
+  cursor: pointer;
   transition: background-color 250ms;
   &:hover {
-    background-color: $bright-orange;
+    background-color: #B3C6C0FF;
   }
 }

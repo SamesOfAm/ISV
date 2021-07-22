@@ -25,12 +25,14 @@ $objUser = FrontendUser::getInstance();
 $username = $objUser->username;
 ?>
 
+
+
             <form method="post"
                   action="<?= ampersand(\Environment::get('request'), true); ?>"
                   id="<?= $this->table; ?>"
                   enctype="<?= $this->enctype; ?>"
             >
-                <?php if(strpos($_SERVER['REQUEST_URI'], 'user.html')): ?>
+                <?php if(strpos($_SERVER['REQUEST_URI'], 'user')): ?>
                   <?php
                       $id = $_GET["id"];
                       $idParts = explode('::', $id);
@@ -40,39 +42,69 @@ $username = $objUser->username;
                       while($row = $dbResult->fetchRow()):
                         if($row[0] === $idParts[1]):
                   ?>
-                    <div class="formbody_edit">
-                        <section class="ce_accordionSingle ce_accordion block">
-                            <div class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="false" aria-expanded="false" tabindex="0">
-                                Alle Optionen einblenden
-                            </div>
-                            <div class="accordion">
-                                <input type="hidden" name="FORM_SUBMIT" value="<?= specialchars($this->table); ?>"/>
-                                <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN; ?>"/>
-                                <?php if ($this->error): ?><p class="tl_error"><?= implode('<br />', $this->error); ?></p><?php endif; ?>
-                                <?php foreach ($this->fieldsets as $arrFieldset): ?>
-                                    <?php if ($arrFieldset['legend']): ?>
-                                        <fieldset id="pal_<?= specialchars($arrFieldset['legend']); ?>"
-                                                  class="<?= $arrFieldset['class']; ?> block">
-                                            <?= $arrFieldset['palette']; ?>
-                                        </fieldset>
-                                    <?php else: ?>
-                                        <fieldset class="<?= $arrFieldset['class']; ?> block nolegend">
-                                            <?= $arrFieldset['palette']; ?>
-                                        </fieldset>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </div>
-                        </section>
+
+
+                  <?php
+                      $sql = "SELECT name FROM $idParts[0] WHERE int_name='" . $username . "'";
+                      $dbQuery = Database::getInstance()->prepare($sql);
+                      $dbResult = $dbQuery->execute();
+                      $row = $dbResult->fetchRow();
+                      $name = $row[0];
+                  ?>
+                    <div class="welcome-message">
+                        <p>Hallo <?= $name ?>!</p>
                     </div>
+                    <div class="link-back">
+                        <a href="{{link_url::4}}">Zurück</a>
+                    </div>
+                    <div class="link-logout">
+                        <a href="{{link_url::9}}">Logout</a>
+                    </div>
+                    <div class="formbody_edit">
+                        <input type="hidden" name="FORM_SUBMIT" value="<?= specialchars($this->table); ?>"/>
+                        <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN; ?>"/>
+                        <?php if ($this->error): ?><p class="tl_error"><?= implode('<br />', $this->error); ?></p><?php endif; ?>
+                        <?php foreach ($this->fieldsets as $arrFieldset): ?>
+                            <?php if ($arrFieldset['legend']): ?>
+                                <fieldset id="pal_<?= specialchars($arrFieldset['legend']); ?>"
+                                          class="<?= $arrFieldset['class']; ?> block">
+                                    <?= $arrFieldset['palette']; ?>
+                                </fieldset>
+                            <?php else: ?>
+                                <fieldset class="<?= $arrFieldset['class']; ?> block nolegend">
+                                    <?= $arrFieldset['palette']; ?>
+                                </fieldset>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                      <?php
+                          $sql = "SELECT alias FROM $idParts[0] WHERE int_name='" . $username . "'";
+                          $dbQuery = Database::getInstance()->prepare($sql);
+                          $dbResult = $dbQuery->execute();
+                          $row = $dbResult->fetchRow();
+                          $alias = $row[0];
+                      ?>
+                        <div class="detail-link">
+                            <a href="{{link_url::27}}/<?= $alias ?>">Zur Profilseite</a>
+                        </div>
                     <div class="formbody_submit">
                         <div class="submit_container">
                             <?= implode(' ', $this->editButtons); ?>
                         </div>
                     </div>
+                        <div class="link-to-jobs">
+                            <a href="{{link_url::23}}">Jobangebot schalten</a>
+                        </div>
         <?php else: ?>
             <p>Hier gibt es nichts zu sehen</p>
         <?php endif; ?>
     <?php endwhile; ?>
+
+
+
+<!-- // Jobbörse -->
+
+
 <?php elseif(strpos((string)$_GET, 'jobboerse') !== -1): ?>
             <div class="formbody_edit">
             <section class="add-job ce_accordionSingle ce_accordion block">
