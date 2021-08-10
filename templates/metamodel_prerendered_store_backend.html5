@@ -28,7 +28,7 @@
                         <?php if ((isset($arrItem[$this->getFormat()][$field])
                                    && ($strValue = $arrItem[$this->getFormat()][$field])
                                    || (isset($arrItem['text'][$field]) && ($strValue = $arrItem['text'][$field])))): ?>
-                            <?php if(strpos($field, 'open_') === false && strpos($field, 'logo') === false && strpos($field, 'photo') === false && strpos($field, 'active') === false): ?>
+                            <?php if(strpos($field, 'open_') === false && strpos($field, 'logo') === false && strpos($field, 'photo') === false && strpos($field, 'active') === false && strpos($field, '_break_') === false): ?>
 
                                 <div class="overview-field <?= $field ?>">
                                     <?php if (!$this->view->get('hideLabels')): ?>
@@ -47,31 +47,101 @@
                         <table>
                             <tr>
                                 <td>Montag</td>
-                                <td><?php if($arrItem['text']['open_mon_from']): ?><?= $arrItem['text']['open_mon_from']; ?> - <?= $arrItem['text']['open_mon_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                                <td>
+                                    <?php if($arrItem['text']['open_mon_from']): ?>
+                                        <?= $arrItem['text']['open_mon_from']; ?> -
+                                        <?php if($arrItem['text']['mon_break_from']): ?>
+                                            <?= $arrItem['text']['mon_break_from'] ?><br>
+                                            <?= $arrItem['text']['mon_break_to'] ?> -
+                                        <?php endif; ?>
+                                        <?= $arrItem['text']['open_mon_to'] ?> Uhr
+                                        <?php else: ?><strong>geschlossen</strong>
+                                    <?php endif; ?>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Dienstag</td>
-                                <td><?php if($arrItem['text']['open_tue_from']): ?><?= $arrItem['text']['open_tue_from']; ?> - <?= $arrItem['text']['open_tue_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                                <td>
+                                  <?php if($arrItem['text']['open_tue_from']): ?>
+                                    <?= $arrItem['text']['open_tue_from']; ?> -
+                                    <?php if($arrItem['text']['tue_break_from']): ?>
+                                      <?= $arrItem['text']['tue_break_from'] ?><br>
+                                      <?= $arrItem['text']['tue_break_to'] ?> -
+                                    <?php endif; ?>
+                                    <?= $arrItem['text']['open_tue_to'] ?> Uhr
+                                  <?php else: ?><strong>geschlossen</strong>
+                                  <?php endif; ?>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Mittwoch</td>
-                                <td><?php if($arrItem['text']['open_wed_from']): ?><?= $arrItem['text']['open_wed_from']; ?> - <?= $arrItem['text']['open_wed_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                                <td>
+                                  <?php if($arrItem['text']['open_wed_from']): ?>
+                                    <?= $arrItem['text']['open_wed_from']; ?> -
+                                    <?php if($arrItem['text']['wed_break_from']): ?>
+                                      <?= $arrItem['text']['wed_break_from'] ?><br>
+                                      <?= $arrItem['text']['wed_break_to'] ?> -
+                                    <?php endif; ?>
+                                    <?= $arrItem['text']['open_wed_to'] ?> Uhr
+                                  <?php else: ?><strong>geschlossen</strong>
+                                  <?php endif; ?>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Donnerstag</td>
-                                <td><?php if($arrItem['text']['open_thu_from']): ?><?= $arrItem['text']['open_thu_from']; ?> - <?= $arrItem['text']['open_thu_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                                <td>
+                                  <?php if($arrItem['text']['open_thu_from']): ?>
+                                    <?= $arrItem['text']['open_thu_from']; ?> -
+                                    <?php if($arrItem['text']['thu_break_from']): ?>
+                                      <?= $arrItem['text']['thu_break_from'] ?><br>
+                                      <?= $arrItem['text']['thu_break_to'] ?> -
+                                    <?php endif; ?>
+                                    <?= $arrItem['text']['open_thu_to'] ?> Uhr
+                                  <?php else: ?><strong>geschlossen</strong>
+                                  <?php endif; ?>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Freitag</td>
-                                <td><?php if($arrItem['text']['open_fri_from']): ?><?= $arrItem['text']['open_fri_from']; ?> - <?= $arrItem['text']['open_fri_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                                <td>
+                                  <?php if($arrItem['text']['open_fri_from']): ?>
+                                    <?= $arrItem['text']['open_fri_from']; ?> -
+                                    <?php if($arrItem['text']['fri_break_from']): ?>
+                                      <?= $arrItem['text']['fri_break_from'] ?><br>
+                                      <?= $arrItem['text']['fri_break_to'] ?> -
+                                    <?php endif; ?>
+                                    <?= $arrItem['text']['open_fri_to'] ?> Uhr
+                                  <?php else: ?><strong>geschlossen</strong>
+                                  <?php endif; ?>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Samstag</td>
-                                <td><?php if($arrItem['text']['open_sat_from']): ?><?= $arrItem['text']['open_sat_from']; ?> - <?= $arrItem['text']['open_sat_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                                <td>
+                                  <?php if($arrItem['text']['open_sat_from']): ?>
+                                    <?= $arrItem['text']['open_sat_from']; ?> -
+                                    <?php if($arrItem['text']['sat_break_from']): ?>
+                                      <?= $arrItem['text']['sat_break_from'] ?><br>
+                                      <?= $arrItem['text']['sat_break_to'] ?> -
+                                    <?php endif; ?>
+                                    <?= $arrItem['text']['open_sat_to'] ?> Uhr
+                                  <?php else: ?><strong>geschlossen</strong>
+                                  <?php endif; ?>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Sonntag</td>
-                                <td><?php if($arrItem['text']['open_sun_from']): ?><?= $arrItem['text']['open_sun_from']; ?> - <?= $arrItem['text']['open_sun_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?></td>
+                                <td>
+                                  <?php if($arrItem['text']['open_sun_from']): ?>
+                                    <?= $arrItem['text']['open_sun_from']; ?> -
+                                    <?php if($arrItem['text']['sun_break_from']): ?>
+                                      <?= $arrItem['text']['sun_break_from'] ?><br>
+                                      <?= $arrItem['text']['sun_break_to'] ?> -
+                                    <?php endif; ?>
+                                    <?= $arrItem['text']['open_sun_to'] ?> Uhr
+                                  <?php else: ?><strong>geschlossen</strong>
+                                  <?php endif; ?>
+                                </td>
                             </tr>
                         </table>
                     </div>

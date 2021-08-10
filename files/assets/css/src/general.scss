@@ -69,7 +69,7 @@ ul {
 .headline + div, .headline + section,.standard-width {
   width: 90%;
   max-width: 400px;
-  margin: 20px auto 0;
+  margin: 20px auto;
 }
 
 a {
@@ -273,3 +273,4 @@ body.high-contrast {
 @import 'fee';
 @import 'search';
 @import 'events';
+@import 'feedback';

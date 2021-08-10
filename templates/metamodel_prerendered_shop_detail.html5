@@ -59,16 +59,79 @@
                 <div class="tabcontrol_panes block">
                     <div class="ce_tabcontrol_pane pane_1 block" id="pane_129_1">
                         <div class="panes" style="display: block;">
-                            <div>
+                            <div class="opening">
                                 <div class="ce_text block">
                                     <p>
-                                        Montag <?php if($store['text']['open_mon_from']): ?><?= $store['text']['open_mon_from'] ?> - <?= $store['text']['open_mon_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?><br>
-                                        Dienstag <?php if($store['text']['open_tue_from']): ?><?= $store['text']['open_tue_from'] ?> - <?= $store['text']['open_tue_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?><br>
-                                        Mittwoch <?php if($store['text']['open_wed_from']): ?><?= $store['text']['open_wed_from'] ?> - <?= $store['text']['open_wed_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?><br>
-                                        Donnerstag <?php if($store['text']['open_thu_from']): ?><?= $store['text']['open_thu_from'] ?> - <?= $store['text']['open_thu_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?><br>
-                                        Freitag <?php if($store['text']['open_fri_from']): ?><?= $store['text']['open_fri_from'] ?> - <?= $store['text']['open_fri_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?><br>
-                                        Samstag <?php if($store['text']['open_sat_from']): ?><?= $store['text']['open_sat_from'] ?> - <?= $store['text']['open_sat_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?><br>
-                                        Sonntag <?php if($store['text']['open_sun_from']): ?><?= $store['text']['open_sun_from'] ?> - <?= $store['text']['open_sun_to'] ?> Uhr<?php else: ?><strong>geschlossen</strong><?php endif; ?>
+                                      <strong>Montag</strong>
+                                      <?php if($store['text']['open_mon_from']): ?>
+                                        <?= $store['text']['open_mon_from']; ?> -
+                                        <?php if($store['text']['mon_break_from']): ?>
+                                          <?= $store['text']['mon_break_from'] ?>,
+                                          <?= $store['text']['mon_break_to'] ?> -
+                                        <?php endif; ?>
+                                        <?= $store['text']['open_mon_to'] ?>
+                                      <?php else: ?><strong>geschlossen</strong>
+                                      <?php endif; ?><br>
+                                      <strong>Dienstag</strong>
+                                      <?php if($store['text']['open_tue_from']): ?>
+                                        <?= $store['text']['open_tue_from']; ?> -
+                                        <?php if($store['text']['tue_break_from']): ?>
+                                          <?= $store['text']['tue_break_from'] ?>,
+                                          <?= $store['text']['tue_break_to'] ?> -
+                                        <?php endif; ?>
+                                        <?= $store['text']['open_tue_to'] ?>
+                                      <?php else: ?><strong>geschlossen</strong>
+                                      <?php endif; ?><br>
+                                      <strong>Mittwoch</strong>
+                                      <?php if($store['text']['open_wed_from']): ?>
+                                        <?= $store['text']['open_wed_from']; ?> -
+                                        <?php if($store['text']['wed_break_from']): ?>
+                                          <?= $store['text']['wed_break_from'] ?>,
+                                          <?= $store['text']['wed_break_to'] ?> -
+                                        <?php endif; ?>
+                                        <?= $store['text']['open_wed_to'] ?>
+                                      <?php else: ?><strong>geschlossen</strong>
+                                      <?php endif; ?><br>
+                                      <strong>Donnerstag</strong>
+                                      <?php if($store['text']['open_thu_from']): ?>
+                                        <?= $store['text']['open_thu_from']; ?> -
+                                        <?php if($store['text']['thu_break_from']): ?>
+                                          <?= $store['text']['thu_break_from'] ?>,
+                                          <?= $store['text']['thu_break_to'] ?> -
+                                        <?php endif; ?>
+                                        <?= $store['text']['open_thu_to'] ?>
+                                      <?php else: ?><strong>geschlossen</strong>
+                                      <?php endif; ?><br>
+                                        <strong>Freitag</strong>
+                                      <?php if($store['text']['open_fri_from']): ?>
+                                        <?= $store['text']['open_fri_from']; ?> -
+                                        <?php if($store['text']['fri_break_from']): ?>
+                                          <?= $store['text']['fri_break_from'] ?>,
+                                          <?= $store['text']['fri_break_to'] ?> -
+                                        <?php endif; ?>
+                                        <?= $store['text']['open_fri_to'] ?>
+                                      <?php else: ?><strong>geschlossen</strong>
+                                      <?php endif; ?><br>
+                                        <strong>Samstag</strong>
+                                      <?php if($store['text']['open_sat_from']): ?>
+                                        <?= $store['text']['open_sat_from']; ?> -
+                                        <?php if($store['text']['sat_break_from']): ?>
+                                          <?= $store['text']['sat_break_from'] ?>,
+                                          <?= $store['text']['sat_break_to'] ?> -
+                                        <?php endif; ?>
+                                        <?= $store['text']['open_sat_to'] ?>
+                                      <?php else: ?><strong>geschlossen</strong>
+                                      <?php endif; ?><br>
+                                        <strong>Sonntag</strong>
+                                      <?php if($store['text']['open_sun_from']): ?>
+                                        <?= $store['text']['open_sun_from']; ?> -
+                                        <?php if($store['text']['sun_break_from']): ?>
+                                          <?= $store['text']['sun_break_from'] ?>,
+                                          <?= $store['text']['sun_break_to'] ?> -
+                                        <?php endif; ?>
+                                        <?= $store['text']['open_sun_to'] ?>
+                                      <?php else: ?><strong>geschlossen</strong>
+                                      <?php endif; ?><br>
                                     </p>
                                 </div>
                             </div>

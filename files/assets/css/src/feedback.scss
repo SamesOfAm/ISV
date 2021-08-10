@@ -1,0 +1,24 @@
+@import 'variables';
+
+.feedback-form {
+  textarea {
+    font-size: 15px;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    padding: 10px 12px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  .widget-submit button {
+    border: none;
+    border-radius: 3px;
+    padding: 8px 10px;
+    font-size: 15px;
+    background: #14616e;
+    color: white;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+}

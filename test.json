@@ -1,0 +1,278 @@
+{
+  "schema:url": {
+    "@value": "https://www.weimar.de/kultur/sehenswuerdigkeiten/bauten-denkmale-brunnen/denkmale/",
+    "@type": "schema:URL"
+  },
+  "thuecat:whoWasHere": {
+    "@id": "https://thuecat.org/resources/329372083717-rnhe"
+  },
+  "thuecat:trafficInfrastructure": {
+    "@value": "thuecat:ZeroSpecialTrafficInfrastructure",
+    "@type": "thuecat:TrafficInfrastructure"
+  },
+  "@type": [
+    "schema:Place",
+    "schema:Organization",
+    "schema:LocalBusiness",
+    "schema:CivicStructure",
+    "schema:Thing",
+    "schema:TouristAttraction",
+    "ttgds:PointOfInterest",
+    "thuecat:Building",
+    "thuecat:OtherBuilding",
+    "thuecat:Monument"
+  ],
+  "schema:sameAs": {
+    "@value": "https://www.outdooractive.com/de/59082833",
+    "@type": "schema:URL"
+  },
+  "thuecat:entrance": {
+    "@value": "thuecat:ZeroInformationEntrance",
+    "@type": "thuecat:Entrance"
+  },
+  "thuecat:parkingFacilityNearBy": {
+    "@id": "https://thuecat.org/resources/598103570047-nnkj"
+  },
+  "thuecat:architecturalStyle": {
+    "@value": "thuecat:ZeroInformationArchitecturalStyle",
+    "@type": "thuecat:ArchitecturalStyle"
+  },
+  "thuecat:digitalOffer": {
+    "@value": "thuecat:ZeroDigitalOffer",
+    "@type": "thuecat:DigitalOffer"
+  },
+  "schema:hasMap": {
+    "@value": "https://goo.gl/maps/TrVhUv3UA6cwUZhF8",
+    "@type": "schema:URL"
+  },
+  "schema:geo": {
+    "schema:latitude": {
+      "@value": "50.98145",
+      "@type": "schema:Number"
+    },
+    "@type": [
+      "schema:Intangible",
+      "schema:StructuredValue",
+      "schema:Thing",
+      "schema:GeoCoordinates"
+    ],
+    "@id": "genid-82a38bbf33884448a4eb1f59ff49952a-b4",
+    "schema:longitude": {
+      "@value": "11.33331",
+      "@type": "schema:Number"
+    }
+  },
+  "schema:containedInPlace": [
+    {
+      "@id": "https://thuecat.org/resources/524021889375-rzrx"
+    },
+    {
+      "@id": "https://thuecat.org/resources/886158249258-ytpo"
+    }
+  ],
+  "schema:publicAccess": {
+    "@value": "true",
+    "@type": "schema:Boolean"
+  },
+  "thuecat:otherService": {
+    "@value": "thuecat:ZeroOtherServiceEnumMem",
+    "@type": "thuecat:OtherService"
+  },
+  "schema:description": [
+    {
+      "@value": "En 1956, un monument a été érigé près de la rive de l'Ilm en l'honneur du poète national et ardent admirateur de la littérature classique allemande, Adam Bernard Mickiewicz. L'œuvre de ce savant naturel et homme de lettres a fondé le romantisme polonais. Dès sa jeunesse, il était considéré comme un grand admirateur de Goethe et de Schiller - notamment de leurs idées sur la liberté. En août 1829, il est invité aux célébrations du 80e anniversaire de Goethe à Weimar et loge à l'hôtel \"Zum Elephanten\" sur la place du marché. Le monument a été créé et érigé en 1956 par le sculpteur allemand Gerhard Thieme.",
+      "@language": "fr"
+    },
+    {
+      "@value": "In 1956, a monument was erected near the bank of the Ilm in honour of the national poet and ardent admirer of classical German literature, Adam Bernard Mickiewicz. The work of the studied scientist and man of letters founded Polish Romanticism. Already in his early youth he was considered a great admirer of Goethe and Schiller - especially of their ideas of freedom. In August 1829 he was a guest at the celebrations of Goethe's 80th birthday in Weimar, staying at the hotel \"Zum Elephanten\" on the market square. The monument was created and erected in 1956 by the German sculptor Gerhard Thieme.",
+      "@language": "en"
+    },
+    {
+      "@value": "In der Nähe des Ilmufers wurde 1956 zu Ehren des Nationaldichters und glühenden Verehrers der klassischen deutschen Literatur, Adam Bernard Mickiewicz, ein Denkmal errichtet. Das Werk des studierten Naturwissenschaftlers und Literaten begründete die polnische Romantik. Schon in früher Jugend galt er als großer Verehrer von Goethe und Schiller – insbesondere von deren Freiheitsgedanken. Im August 1829 war er Gast bei den Feierlichkeiten zu Goethes 80. Geburtstag in Weimar anwesend, wohnt im Hotel „Zum Elephanten“ am Markt. Das Denkmal wurde im Jahr 1956 vom deutschen Bildhauer Gerhard Thieme erschaffen und aufgestellt.",
+      "@language": "de"
+    },
+    {
+      "@type": [
+        "schema:Intangible",
+        "schema:Thing",
+        "schema:ComputerLanguage",
+        "thuecat:Html"
+      ],
+      "@id": "genid-82a38bbf33884448a4eb1f59ff49952a-b1",
+      "schema:value": {
+        "@value": "<p>In der Nähe des Ilmufers wurde 1956 zu Ehren des Nationaldichters und glühenden Verehrers der klassischen deutschen Literatur, Adam Bernard Mickiewicz, ein Denkmal errichtet. Das Werk des studierten Naturwissenschaftlers und Literaten begründete die polnische Romantik. Schon in früher Jugend galt er als großer Verehrer von Goethe und Schiller – insbesondere von deren Freiheitsgedanken. Im August 1829 war er Gast bei den Feierlichkeiten zu Goethes 80. Geburtstag in Weimar anwesend, wohnt im Hotel „Zum Elephanten“ am Markt. Das Denkmal wurde im Jahr 1956 vom deutschen Bildhauer Gerhard Thieme erschaffen und aufgestellt.</p>",
+        "@language": "de"
+      }
+    },
+    {
+      "@type": [
+        "schema:Intangible",
+        "schema:Thing",
+        "schema:ComputerLanguage",
+        "thuecat:Html"
+      ],
+      "@id": "genid-82a38bbf33884448a4eb1f59ff49952a-b2",
+      "schema:value": {
+        "@value": "<p>In 1956, a monument was erected near the bank of the Ilm in honour of the national poet and ardent admirer of classical German literature, Adam Bernard Mickiewicz. The work of the studied scientist and man of letters founded Polish Romanticism. Already in his early youth he was considered a great admirer of Goethe and Schiller - especially of their ideas of freedom. In August 1829 he was a guest at the celebrations of Goethe's 80th birthday in Weimar, staying at the hotel \"Zum Elephanten\" on the market square. The monument was created and erected in 1956 by the German sculptor Gerhard Thieme.</p>",
+        "@language": "en"
+      }
+    },
+    {
+      "@type": [
+        "schema:Intangible",
+        "schema:Thing",
+        "schema:ComputerLanguage",
+        "thuecat:Html"
+      ],
+      "@id": "genid-82a38bbf33884448a4eb1f59ff49952a-b3",
+      "schema:value": {
+        "@value": "<p>En 1956, un monument a été érigé près de la rive de l'Ilm en l'honneur du poète national et ardent admirateur de la littérature classique allemande, Adam Bernard Mickiewicz. L'œuvre de ce savant naturel et homme de lettres a fondé le romantisme polonais. Dès sa jeunesse, il était considéré comme un grand admirateur de Goethe et de Schiller - notamment de leurs idées sur la liberté. En août 1829, il est invité aux célébrations du 80e anniversaire de Goethe à Weimar et loge à l'hôtel \"Zum Elephanten\" sur la place du marché. Le monument a été créé et érigé en 1956 par le sculpteur allemand Gerhard Thieme.</p>",
+        "@language": "fr"
+      }
+    }
+  ],
+  "thuecat:monumentEnum": {
+    "@value": "thuecat:ArchitecturalMonumentSingle",
+    "@type": "thuecat:MonumentEnum"
+  },
+  "thuecat:photography": {
+    "@value": "thuecat:TakingPicturesPermitted",
+    "@type": "thuecat:Photography"
+  },
+  "schema:address": {
+    "schema:telephone": [
+      {
+        "@value": "+4936437450",
+        "@language": "de"
+      },
+      {
+        "@value": "+4936437450",
+        "@language": "en"
+      },
+      {
+        "@value": "+4936437450",
+        "@language": "fr"
+      }
+    ],
+    "schema:postalCode": [
+      {
+        "@value": "99423",
+        "@language": "de"
+      },
+      {
+        "@value": "99423",
+        "@language": "en"
+      },
+      {
+        "@value": "99423",
+        "@language": "fr"
+      }
+    ],
+    "@type": [
+      "schema:Intangible",
+      "schema:PostalAddress",
+      "schema:StructuredValue",
+      "schema:Thing",
+      "schema:ContactPoint"
+    ],
+    "schema:faxNumber": [
+      {
+        "@value": "+493643745420",
+        "@language": "de"
+      },
+      {
+        "@value": "+493643745420",
+        "@language": "en"
+      },
+      {
+        "@value": "+493643745420",
+        "@language": "fr"
+      }
+    ],
+    "schema:addressCountry": {
+      "@value": "thuecat:Germany",
+      "@type": "thuecat:AddressCountry"
+    },
+    "schema:addressLocality": [
+      {
+        "@value": "Weimar",
+        "@language": "de"
+      },
+      {
+        "@value": "Weimar",
+        "@language": "en"
+      },
+      {
+        "@value": "Weimar",
+        "@language": "fr"
+      }
+    ],
+    "schema:streetAddress": [
+      {
+        "@value": "Kegelplatz 5",
+        "@language": "de"
+      },
+      {
+        "@value": "Skittle court 5",
+        "@language": "en"
+      },
+      {
+        "@value": "Terrain de quilles 5",
+        "@language": "fr"
+      }
+    ],
+    "@id": "genid-82a38bbf33884448a4eb1f59ff49952a-b0",
+    "schema:addressRegion": {
+      "@value": "thuecat:Thuringia",
+      "@type": "thuecat:AddressFederalState"
+    },
+    "thuecat:typOfAddress": {
+      "@value": "thuecat:HouseAddress",
+      "@type": "thuecat:TypOfAddress"
+    },
+    "schema:email": [
+      {
+        "@value": "tourist-info@weimar.de",
+        "@language": "de"
+      },
+      {
+        "@value": "tourist-info@weimar.de",
+        "@language": "en"
+      },
+      {
+        "@value": "tourist-info@weimar.de",
+        "@language": "fr"
+      }
+    ]
+  },
+  "thuecat:guidedTour": {
+    "@value": "thuecat:ZeroGuidedTours",
+    "@type": "thuecat:EnumGuidedTour"
+  },
+  "@id": "https://thuecat.org/resources/262483019699-jqtx",
+  "thuecat:contentResponsible": {
+    "@id": "https://thuecat.org/resources/079491439271-qqjm"
+  },
+  "thuecat:gastro": {
+    "@value": "thuecat:ZeroGastronomy",
+    "@type": "thuecat:GastroPoi"
+  },
+  "schema:name": [
+    {
+      "@value": "Monument Mickiewicz",
+      "@language": "fr"
+    },
+    {
+      "@value": "Mickiewicz Monument Weimar",
+      "@language": "en"
+    },
+    {
+      "@value": "Mickiewicz-Denkmal Weimar",
+      "@language": "de"
+    }
+  ],
+  "thuecat:sanitation": {
+    "@value": "thuecat:ZeroSanitation",
+    "@type": "thuecat:Sanitation"
+  }
+}

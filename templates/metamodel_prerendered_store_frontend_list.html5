@@ -1,7 +1,7 @@
 <div class="item-list">
 
     <?php foreach ($this->data as $store): ?>
-        <?php if($store['raw']['active'] === '1'): ?>
+        <?php if($store['raw']['active'] && $store['raw']['activatedByEditor']): ?>
             <?php $this->block('item'); ?>
             <div class="item store <?= $store['class'] ?>">
                 <a href="<?= $store['jumpTo']['url'] ?>">
