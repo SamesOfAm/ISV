@@ -1,5 +1,13 @@
 @import 'variables';
 
+.sponsor-page {
+  z-index: 2;
+  .inside {
+    max-width: 834px;
+    margin: 0 auto;
+  }
+}
+
 .sponsor-close {
   position: absolute;
   right: 20px;

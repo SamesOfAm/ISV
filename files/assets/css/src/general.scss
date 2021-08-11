@@ -68,7 +68,7 @@ ul {
 
 .headline + div, .headline + section,.standard-width {
   width: 90%;
-  max-width: 400px;
+  max-width: 800px;
   margin: 20px auto;
 }
 
@@ -100,7 +100,7 @@ fieldset {
 
 .no-items-found {
   width: 90%;
-  max-width: 400px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -274,3 +274,5 @@ body.high-contrast {
 @import 'search';
 @import 'events';
 @import 'feedback';
+@import 'sponsor';
+@import 'change-password';

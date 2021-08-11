@@ -13,7 +13,7 @@
 
 .homepage-links {
   width: 90%;
-  max-width: 400px;
+  max-width: 800px;
   margin: 0 auto;
   padding-top: 60px;
   .link a {
@@ -27,7 +27,7 @@
 
 #main .mod_customnav,.mobile_menu .inner .mod_customnav {
   width: 90%;
-  max-width: 400px;
+  max-width: 800px;
   margin: 25px auto;
   border-top: 1px solid;
   ul {
@@ -36,7 +36,7 @@
     text-transform: uppercase;
     display: flex;
     justify-content: space-between;
-    max-width: 400px;
+    max-width: 800px;
     margin: 0 auto;
     li a:not(.last),li strong:not(.last) {
       border-right: 1px solid;

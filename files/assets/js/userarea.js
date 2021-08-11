@@ -45,27 +45,85 @@ jQuery(document).ready(function(){
         }
     }
 
+    const pullOutLegend = (id) => {
+        const element = document.getElementById(id);
+        const legend = element.querySelector('legend');
+        const parent = element.parentElement;
+        element.removeChild(legend);
+        parent.insertBefore(legend, element);
+    }
 
-    if(document.getElementById('ctrl_tags')){
-        const tags = document.getElementById('ctrl_tags').querySelectorAll('span');
+    const beautifyCheckboxes = (id) => {
+        const tags = document.getElementById(id).querySelectorAll('span');
         for(let i = 0; i < tags.length; i++) {
             const radioOption = document.createElement('label');
             const textNode = document.createTextNode(tags[i].innerText);
             radioOption.appendChild(textNode);
-            document.querySelector('.widget.prop-tags').appendChild(radioOption);
+            document.getElementById(id).parentElement.appendChild(radioOption);
             radioOption.addEventListener('click', function(){
-                const allLabels = jQuery('.widget.prop-tags').children('label');
+                const allLabels = Array.from(document.getElementById(id).parentElement.children).filter(el=>el.tagName === 'LABEL');
+                const allOptions = Array.from(document.getElementById(id).parentElement.children).filter(el=>el.tagName === 'OPTION');
                 tags[i].firstChild.checked = !tags[i].firstChild.checked;
                 if(tags[i].firstChild.checked){
                     allLabels[i].style.backgroundImage = 'url("files/assets/layout/selected.svg")';
+                    allOptions[i].style.backgroundImage = 'url("files/assets/layout/selected.svg")';
                 } else {
                     allLabels[i].style.backgroundImage = 'url("files/assets/layout/unselected.svg")';
+                    allOptions[i].style.backgroundImage = 'url("files/assets/layout/unselected.svg")';
                 }
             });
             if(tags[i].firstChild.checked) {
                 radioOption.style.backgroundImage = 'url("files/assets/layout/selected.svg")';
             }
         }
+    }
+
+    if(document.getElementById('ctrl_tags')){
+        beautifyCheckboxes('ctrl_tags');
+    }
+
+    if(document.getElementById('ctrl_assortment')){
+        beautifyCheckboxes('ctrl_assortment');
+    }
+
+    if(document.getElementById('ctrl_extras')){
+        beautifyCheckboxes('ctrl_extras');
+    }
+
+    if(document.getElementById('ctrl_category')){
+        beautifyCheckboxes('ctrl_category');
+        pullOutLegend('ctrl_category');
+    }
+
+    if(document.getElementById('mm_store') && document.getElementById('ctrl_type')){
+        beautifyCheckboxes('ctrl_type');
+    }
+
+    let isRestaurant = false;
+    let isShopping = false;
+
+    // Abhängig von Kategorie-Auswahl (Restaurant bzw. Shopping) Unterkategorie-Auswahl anzeigen
+
+    if(document.getElementById('mm_restaurant')) {
+        Array.from(document.getElementById('mm_restaurant').querySelector('.prop-category').children).filter(el => el.tagName === 'LABEL')[0].addEventListener('click', function () {
+            isRestaurant = !isRestaurant;
+            if (isRestaurant) {
+                document.querySelector('.prop-assortment').style.display = "block";
+            } else {
+                document.querySelector('.prop-assortment').style.display = "none";
+            }
+        })
+    }
+
+    if(document.getElementById('mm_store')) {
+        Array.from(document.getElementById('mm_store').querySelector('.prop-category').children).filter(el => el.tagName === 'LABEL')[0].addEventListener('click', function () {
+            isShopping = !isShopping;
+            if (isShopping) {
+                document.querySelector('.prop-type').style.display = "block";
+            } else {
+                document.querySelector('.prop-type').style.display = "none";
+            }
+        })
     }
 
     /* if(document.querySelector('.widget.datepicker')) {

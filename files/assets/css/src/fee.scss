@@ -1,28 +1,36 @@
 @import 'variables';
 
-#mm_store .link-back {
-  margin-top: 10px;
-  width: 48%;
-  display: inline-block;
-  a {
+#mm_store,#mm_restaurant,#mm_doctor {
+  .link-back {
+    margin-top: 10px;
+    width: 48%;
     display: inline-block;
-    position: relative;
-    width: 100%;
-    padding: 10px 35px;
-    font-size: 15px;
-    background: $bright-green;
-    border-radius: 3px;
-    text-transform: uppercase;
-    box-sizing: border-box;
-    line-height: 1em;
-    &:before {
-      position: absolute;
-      text-transform: none;
-      content: 'd';
-      font-family: 'Weimar', sans-serif;
-      top: 10px;
-      left: 12px;
+    a {
+      display: inline-block;
+      position: relative;
+      width: 100%;
+      padding: 10px 35px;
+      font-size: 15px;
+      background: $bright-green;
+      border-radius: 3px;
+      text-transform: uppercase;
+      box-sizing: border-box;
+      line-height: 1em;
+      &:before {
+        position: absolute;
+        text-transform: none;
+        content: 'd';
+        font-family: 'Weimar', sans-serif;
+        top: 10px;
+        left: 12px;
+      }
     }
+  }
+}
+
+#mm_store {
+  .prop-type {
+    display: none;
   }
 }
 
@@ -36,7 +44,7 @@
     label {
       text-transform: uppercase;
       font-size: 15px;
-      width: 100%;
+      width: 300px;
       display: block;
       margin: 5px 0;
     }
@@ -104,6 +112,15 @@
         }
       }
     }
+    &.widget-checkbox,&.widget-radio {
+      legend {
+        text-transform: uppercase;
+        font-size: 15px;
+        width: 100%;
+        display: block;
+        margin: 5px 0;
+      }
+    }
     &.datepicker,&.prop-street,&.prop-street_number,&.prop-zip,&.prop-city {
       display: inline-block;
       width: 45%;
@@ -113,14 +130,17 @@
     &.datepicker input {
       // display: none;
     }
-    &.prop-tags {
+    &.prop-tags,&.prop-assortment,&.prop-extras,&.prop-category {
       label {
         padding-left: 25px;
-        background: url('../layout/unselected.svg') no-repeat 0 5px/5%;
+        background: url('../layout/unselected.svg') no-repeat 0 5px/6%;
         text-transform: none;
       }
     }
-    #ctrl_tags {
+    &.prop-assortment {
+      display: none;
+    }
+    #ctrl_tags,#ctrl_assortment,#ctrl_extras,#ctrl_category {
       display: none;
     }
   }
