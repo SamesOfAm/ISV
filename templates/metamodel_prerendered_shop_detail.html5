@@ -53,7 +53,7 @@
                 <div class="tabcontrol_tabs block">
                     <ul>
                         <li class="tabs tab_0 selected" id="128_0">Öffnungszeiten</li>
-                        <li class="tabs tab_1" id="128_1">Shop-Info</li>
+                        <li class="tabs tab_1" id="128_1">Info</li>
                     </ul>
                 </div>
                 <div class="tabcontrol_panes block">
@@ -143,7 +143,7 @@
                                 <div class="ce_text block">
                                     <p><?= $store['text']['desc'] ?></p>
                                     <?php if($store['text']['website']): ?>
-                                        <p><a style="text-decoration:underline" target="_blank" href="<?= $store['text']['website'] ?>">Zur Website</a></p>
+                                        <p><a style="text-decoration:underline" target="_blank" href="<?= $store['raw']['website'] ?>"><?= $store['text']['website'] ?></a></p>
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -199,9 +199,11 @@
         </div>
 
     <div class="bottom-links">
-        <div class="link-to-shop">
-            <a href="<?= $store['text']['onlineshop'] ?>" target="_blank">Zum Onlineshop</a>
-        </div>
+        <?php if($store['text']['onlineshop']): ?>
+            <div class="link-to-shop">
+                <a href="<?= $store['text']['onlineshop'] ?>" target="_blank">Zum Onlineshop</a>
+            </div>
+        <?php endif; ?>
         <div class="link-back">
             {{link::back}}
         </div>

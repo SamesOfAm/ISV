@@ -1,0 +1,218 @@
+<?php if (count($this->data)): ?>
+
+  <?php foreach ($this->data as $restaurant): ?>
+
+    <div class="layout_full restaurant-detail">
+      <?php $time = time(); ?>
+      <?php $hour = date('H:i', $time) ?>
+      <div class="open-sign-wrapper">
+        <div class="open-sign-background">
+                    <span class="open-sign icon-font">
+                        <?php if(date('N', $time) === '1'): ?>
+                          <?php if(($restaurant['text']['open_mon_from'] <= $hour) && ($hour <= $restaurant['raw']['open_mon_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php elseif(date('N', $time) === '2'): ?>
+                          <?php if(($restaurant['text']['open_tue_from'] <= $hour) && ($hour <= $restaurant['raw']['open_tue_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php elseif(date('N', $time) === '3'): ?>
+                          <?php if(($restaurant['text']['open_wed_from'] <= $hour) && ($hour <= $restaurant['raw']['open_wed_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php elseif(date('N', $time) === '4'): ?>
+                          <?php if(($restaurant['text']['open_thu_from'] <= $hour) && ($hour <= $restaurant['raw']['open_thu_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php elseif(date('N', $time) === '5'): ?>
+                          <?php if(($restaurant['text']['open_fri_from'] <= $hour) && ($hour <= $restaurant['raw']['open_fri_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php elseif(date('N', $time) === '6'): ?>
+                          <?php if(($restaurant['text']['open_sat_from'] <= $hour) && ($hour <= $restaurant['raw']['open_sat_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php elseif(date('N', $time) === '7'): ?>
+                          <?php if(($restaurant['text']['open_sun_from'] <= $hour) && ($hour <= $restaurant['raw']['open_sun_to'])): ?>v<?php else: ?>V<?php endif; ?>
+                        <?php endif; ?>
+                    </span>
+        </div>
+      </div>
+      <div class="restaurant-detail-photo">
+        <img src="<?php if($restaurant['text']['photo']): ?><?= $restaurant['text']['photo'] ?><?php else: ?>files/assets/layout/shop_placeholder.png<?php endif; ?>">
+      </div>
+      <div class="restaurant-detail-logo">
+        <img src="<?= $restaurant['text']['logo'] ?>">
+      </div>
+      <div class="restaurant-detail-headline">
+        <h1><?= $restaurant['text']['name'] ?></h1>
+        <div class="social-links">
+          <span class="fav-link icon-font">O</span>
+          <span class="share-link icon-font">t</span>
+        </div>
+      </div>
+      <div class="restaurant-detail-classification">
+        <span class="restaurant-detail-categories"><?= $restaurant['text']['type'] ?></span><br>
+        <span class="restaurant-detail-tags"><?= $restaurant['text']['tags'] ?></span>
+      </div>
+
+
+      <!-- indexer::stop -->
+      <script>function loadTabControl_128(){window.TC_128=new Array();i=0;$$('#tabcontrol_128').each(function(s){i++;elements=s.getElements('.tabs');if(elements.length){var tcControl=new TabControl(s,{delay:2500,tab_remember:0,tab_cookiename:'tabcontrollcookie-128',tab_control:'tabcontrol_128',behaviour:'click',tabs:s.getElements('.tabs'),panes:s.getElements('.panes'),selectedClass:'selected',hoverClass:'hover'});window.addEvent("hashchange",function(){tcControl.onTabHashChange()});window.TC_128[i]=tcControl}})}(function($){window.addEvent('domready',loadTabControl_128)})(document.id)</script>
+      <!-- indexer::continue -->
+
+      <div id="tabcontrol_128" class="ce_tabcontrol block">
+        <div class="tabcontrol_tabs block">
+          <ul>
+            <li class="tabs tab_0 selected" id="128_0">Öffnungszeiten</li>
+            <li class="tabs tab_1" id="128_1">Info</li>
+          </ul>
+        </div>
+        <div class="tabcontrol_panes block">
+          <div class="ce_tabcontrol_pane pane_1 block" id="pane_129_1">
+            <div class="panes" style="display: block;">
+              <div class="opening">
+                <div class="ce_text block">
+                  <p>
+                    <strong>Montag</strong>
+                    <?php if($restaurant['text']['open_mon_from']): ?>
+                      <?= $restaurant['text']['open_mon_from']; ?> -
+                      <?php if($restaurant['text']['mon_break_from']): ?>
+                        <?= $restaurant['text']['mon_break_from'] ?>,
+                        <?= $restaurant['text']['mon_break_to'] ?> -
+                      <?php endif; ?>
+                      <?= $restaurant['text']['open_mon_to'] ?>
+                    <?php else: ?><strong>geschlossen</strong>
+                    <?php endif; ?><br>
+                    <strong>Dienstag</strong>
+                    <?php if($restaurant['text']['open_tue_from']): ?>
+                      <?= $restaurant['text']['open_tue_from']; ?> -
+                      <?php if($restaurant['text']['tue_break_from']): ?>
+                        <?= $restaurant['text']['tue_break_from'] ?>,
+                        <?= $restaurant['text']['tue_break_to'] ?> -
+                      <?php endif; ?>
+                      <?= $restaurant['text']['open_tue_to'] ?>
+                    <?php else: ?><strong>geschlossen</strong>
+                    <?php endif; ?><br>
+                    <strong>Mittwoch</strong>
+                    <?php if($restaurant['text']['open_wed_from']): ?>
+                      <?= $restaurant['text']['open_wed_from']; ?> -
+                      <?php if($restaurant['text']['wed_break_from']): ?>
+                        <?= $restaurant['text']['wed_break_from'] ?>,
+                        <?= $restaurant['text']['wed_break_to'] ?> -
+                      <?php endif; ?>
+                      <?= $restaurant['text']['open_wed_to'] ?>
+                    <?php else: ?><strong>geschlossen</strong>
+                    <?php endif; ?><br>
+                    <strong>Donnerstag</strong>
+                    <?php if($restaurant['text']['open_thu_from']): ?>
+                      <?= $restaurant['text']['open_thu_from']; ?> -
+                      <?php if($restaurant['text']['thu_break_from']): ?>
+                        <?= $restaurant['text']['thu_break_from'] ?>,
+                        <?= $restaurant['text']['thu_break_to'] ?> -
+                      <?php endif; ?>
+                      <?= $restaurant['text']['open_thu_to'] ?>
+                    <?php else: ?><strong>geschlossen</strong>
+                    <?php endif; ?><br>
+                    <strong>Freitag</strong>
+                    <?php if($restaurant['text']['open_fri_from']): ?>
+                      <?= $restaurant['text']['open_fri_from']; ?> -
+                      <?php if($restaurant['text']['fri_break_from']): ?>
+                        <?= $restaurant['text']['fri_break_from'] ?>,
+                        <?= $restaurant['text']['fri_break_to'] ?> -
+                      <?php endif; ?>
+                      <?= $restaurant['text']['open_fri_to'] ?>
+                    <?php else: ?><strong>geschlossen</strong>
+                    <?php endif; ?><br>
+                    <strong>Samstag</strong>
+                    <?php if($restaurant['text']['open_sat_from']): ?>
+                      <?= $restaurant['text']['open_sat_from']; ?> -
+                      <?php if($restaurant['text']['sat_break_from']): ?>
+                        <?= $restaurant['text']['sat_break_from'] ?>,
+                        <?= $restaurant['text']['sat_break_to'] ?> -
+                      <?php endif; ?>
+                      <?= $restaurant['text']['open_sat_to'] ?>
+                    <?php else: ?><strong>geschlossen</strong>
+                    <?php endif; ?><br>
+                    <strong>Sonntag</strong>
+                    <?php if($restaurant['text']['open_sun_from']): ?>
+                      <?= $restaurant['text']['open_sun_from']; ?> -
+                      <?php if($restaurant['text']['sun_break_from']): ?>
+                        <?= $restaurant['text']['sun_break_from'] ?>,
+                        <?= $restaurant['text']['sun_break_to'] ?> -
+                      <?php endif; ?>
+                      <?= $restaurant['text']['open_sun_to'] ?>
+                    <?php else: ?><strong>geschlossen</strong>
+                    <?php endif; ?><br>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ce_tabcontrol_pane pane_2 block" id="pane_132_2">
+            <div class="panes" style="display: none;">
+              <div>
+                <div class="ce_text block">
+                  <p><?= $restaurant['text']['desc'] ?></p>
+                  <?php if($restaurant['text']['website']): ?>
+                    <p><a style="text-decoration:underline" target="_blank" href="<?= $restaurant['raw']['website'] ?>"><?= $restaurant['text']['website'] ?></a></p>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <?php if($restaurant['text']['special_offers']): ?>
+        <div class="restaurant-detail-offer">
+          <span><?= str_replace('!', '', $restaurant['text']['special_offers']); ?></span>
+        </div>
+      <?php endif; ?>
+
+
+      <!-- indexer::stop -->
+      <script>function loadTabControl_140(){window.TC_140=new Array();i=0;$$('#tabcontrol_140').each(function(s){i++;elements=s.getElements('.tabs');if(elements.length){var tcControl=new TabControl(s,{delay:2500,tab_remember:0,tab_cookiename:'tabcontrollcookie-134',tab_control:'tabcontrol_140',behaviour:'click',tabs:s.getElements('.tabs'),panes:s.getElements('.panes'),selectedClass:'selected',hoverClass:'hover'});window.addEvent("hashchange",function(){tcControl.onTabHashChange()});window.TC_140[i]=tcControl}})}(function($){window.addEvent('domready',loadTabControl_140)})(document.id)</script>
+      <!-- indexer::continue -->
+
+      <div id="tabcontrol_140" class="ce_tabcontrol block">
+        <div class="tabcontrol_tabs block">
+          <ul>
+            <li class="tabs tab_0 selected" id="140_0">Karten-Ansicht</li>
+            <li class="tabs tab_1 hover" id="140_1">Adresse + Kontakt</li>
+          </ul>
+        </div>
+        <div class="tabcontrol_panes block">
+          <div class="ce_tabcontrol_pane pane_1 block" id="pane_141_1">
+            <div class="panes" style="display: block;">
+
+              <div class="restaurant-detail-map">
+                <div id="map" class="map"></div>
+              </div>
+            </div>
+          </div>
+          <div class="ce_tabcontrol_pane pane_2 block" id="pane_143_2">
+            <div class="panes" style="display: none;">
+              <div>
+                <div>
+                  <p>
+                    <?= $restaurant['text']['name'] ?><br>
+                    <?= $restaurant['text']['street'] ?> <?= $restaurant['text']['street_number'] ?><br>
+                    <?= $restaurant['text']['zip'] ?> <?= $restaurant['text']['city'] ?>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="bottom-links">
+      <?php if($restaurant['text']['onlineshop']): ?>
+        <div class="link-to-shop">
+          <a href="<?= $restaurant['text']['onlineshop'] ?>" target="_blank">Zum Onlineshop</a>
+        </div>
+      <?php endif; ?>
+      <div class="link-back">
+        {{link::back}}
+      </div>
+    </div>
+  <?php endforeach; ?>
+<?php else : ?>
+  <?php $this->block('noItem'); ?>
+  <p class="info"><?= $this->noItemsMsg ?></p>
+  <?php $this->endblock(); ?>
+<?php endif; ?>
+
+

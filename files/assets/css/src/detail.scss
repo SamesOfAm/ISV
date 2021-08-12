@@ -1,6 +1,6 @@
 @import "variables";
 
-.store-detail {
+.store-detail,.restaurant-detail {
   .open-sign-wrapper {
     transform: translateY(50%);
   }
@@ -27,7 +27,7 @@
   }
 }
 
-.store-detail-photo {
+.store-detail-photo,.restaurant-detail-photo {
   img {
     border-radius: 5px;
     height: 200px;
@@ -36,7 +36,7 @@
   }
 }
 
-.store-detail-logo {
+.store-detail-logo,.restaurant-detail-logo {
   height: 80px;
   margin-top: -45px;
   text-align: center;
@@ -47,7 +47,7 @@
   }
 }
 
-.store-detail-headline {
+.store-detail-headline,.restaurant-detail-headline {
   margin-top: 20px;
   margin-bottom: 5px;
   border-bottom: 1px solid;
@@ -65,21 +65,21 @@
   }
 }
 
-.store-detail-classification {
+.store-detail-classification,.restaurant-detail-classification {
   line-height: 1em;
 }
 
-.store-detail-categories {
+.store-detail-categories,.restaurant-detail-categories {
     font-size: 14px;
     text-transform: uppercase;
   }
 
-.store-detail-tags {
+.store-detail-tags,.restaurant-detail-tags {
   font-size: 13px;
   color: $bright-green;
 }
 
-.store-detail-offer {
+.store-detail-offer,.restaurant-detail-offer {
   position: relative;
   margin: 10px 0;
   background-color: $brighter-green;
@@ -101,7 +101,7 @@
   }
 }
 
-.store-detail-map {
+.store-detail-map,.restaurant-detail-map {
   margin: 20px 0;
 }
 
@@ -138,5 +138,9 @@
     position: initial;
     padding-left: 0;
   }
+}
+
+.high-contrast .store-detail,.high-contrast .restaurant-detail {
+  filter: saturate(0);
 }
 

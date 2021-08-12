@@ -1,3 +1,13 @@
+/* Only register a service worker if it's supported */
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('https://weimar.app/service-worker.js').then(function(registration) {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+        console.log('ServiceWorker registration failed: ', err);
+    })
+}
+
+
 document.getElementById('set-contrast').addEventListener('click', function (e) {
     e.preventDefault();
     if(document.body.classList.contains('high-contrast')) {

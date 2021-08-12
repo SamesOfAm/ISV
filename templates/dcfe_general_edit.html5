@@ -50,6 +50,11 @@ $username = $objUser->username;
                       $dbResult = $dbQuery->execute();
                       $row = $dbResult->fetchRow();
                       $name = $row[0];
+                      $sql = "SELECT alias FROM $idParts[0] WHERE int_name='" . $username . "'";
+                      $dbQuery = Database::getInstance()->prepare($sql);
+                      $dbResult = $dbQuery->execute();
+                      $row = $dbResult->fetchRow();
+                      $alias = $row[0];
                   ?>
                     <div class="welcome-message">
                         <p>Hallo <?= $name ?>!</p>
@@ -59,6 +64,9 @@ $username = $objUser->username;
                     </div>
                     <div class="link-logout">
                         <a href="{{link_url::9}}">Logout</a>
+                    </div>
+                    <div class="detail-link-top">
+                        <a href="<?php if($idParts[0] === 'mm_store'): ?>{{link_url::27}}<?php elseif($idParts[0] === 'mm_restaurant'): ?>{{link_url::28}}<?php endif; ?>/<?= $alias ?>">Vorschau Profil</a>
                     </div>
                     <div class="formbody_edit">
                         <input type="hidden" name="FORM_SUBMIT" value="<?= specialchars($this->table); ?>"/>
@@ -77,20 +85,13 @@ $username = $objUser->username;
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </div>
-                      <?php
-                          $sql = "SELECT alias FROM $idParts[0] WHERE int_name='" . $username . "'";
-                          $dbQuery = Database::getInstance()->prepare($sql);
-                          $dbResult = $dbQuery->execute();
-                          $row = $dbResult->fetchRow();
-                          $alias = $row[0];
-                      ?>
-                        <div class="detail-link">
-                            <a href="{{link_url::27}}/<?= $alias ?>">Zur Profilseite</a>
-                        </div>
                     <div class="formbody_submit">
                         <div class="submit_container">
-                            <?= implode(' ', $this->editButtons); ?>
+                          <?= implode(' ', $this->editButtons); ?>
                         </div>
+                    </div>
+                    <div class="detail-link">
+                        <a href="<?php if($idParts[0] === 'mm_store'): ?>{{link_url::27}}<?php elseif($idParts[0] === 'mm_restaurant'): ?>{{link_url::28}}<?php endif; ?>/<?= $alias ?>">Vorschau Profil</a>
                     </div>
                         <div class="link-to-jobs">
                             <a href="{{link_url::33}}">Feedback zu weimar.app</a>

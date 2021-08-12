@@ -15,12 +15,12 @@
 
                   <?php if($arrItem['raw']['active'] === '1'): ?>
                       <div class="overview-field active-status">
-                          <p>Der Shop ist veröffentlicht
+                          <p>Profil ist aktiv und für Kunden sichtbar
                           </p>
                       </div>
                   <?php else: ?>
                       <div class="overview-field active-status">
-                          <p>Der Shop ist nicht veröffentlicht
+                          <p>Profil ist inaktiv und für Kunden nicht sichtbar
                           </p>
                       </div>
                   <?php endif; ?>
